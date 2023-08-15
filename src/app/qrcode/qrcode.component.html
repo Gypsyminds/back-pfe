@@ -1,0 +1,18 @@
+
+
+{{instance.score}}
+
+
+
+
+<div>
+
+  <input type="text" (ngModel)="text" placeholder="Enter text">
+  <button (click)="generateQRCode()">Generate QR Code</button>
+</div>
+<div *ngIf="qrcode">
+  <img [src]="qrcode" alt="QR Code">
+</div>
+
+ 
+  

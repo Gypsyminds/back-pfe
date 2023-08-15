@@ -1,0 +1,174 @@
+
+	<div class="container">
+    <div class="card">
+    <div class="text" *ngIf="showText">
+      <div class="container bg-light py-5">
+        <h1 class="display-5 fw-bold" >Test Angular </h1>
+        <p class="col-md-8 fs-4">Ce quiz contiendra un total de 9 questions</p><br>
+        <h4> Les Règles:</h4>
+        <ol>
+            <li>chaque question durant 30 secondes </li>
+            <li>Si vous quitter le plein d'écran vous quitter le test</li>
+          
+        </ol>
+        <h1 style="font-family: cursive;text-align:center">Bonne Chance 😊</h1>
+       
+
+      </div>
+    </div>
+      <button class="btn btn-info py-3 px-5 m-4 mx-auto" (click)="executeBothFunctions()" *ngIf="showButton"> Passer le test ➡️</button>
+<br> <br> <br> <br> <br>
+  
+
+
+
+
+
+<div *ngIf="showresultat">
+<div *ngIf="currentEntity">
+  <div class="container mt-5">
+    <div class="card">
+        <div class="d-flex justify-content-between p-3">
+       <div class="image">
+  
+  <img src ="assets/img/angular.png" width="90" alt="logo">
+       </div>
+       <div class="quiz-header">
+  <h4 style="font-family:cursive;"> Angular</h4>
+  <span styme="font-style:italic;"> Welcome</span>
+       </div>
+        </div>
+        <div class="d-flex justify-content-around py-3">
+          <div class="score">
+  <h5>   </h5>
+          </div>
+          <div class ="question-remain">
+  <span style="font-style :italic;"> Question {{currentIndex}} of {{listQcms.length}}</span>
+          </div>
+          <div class="timer">
+  <h5>{{counter}} sec⏱</h5>
+          </div>
+      </div>
+      <div class="progress mb-3" >
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" (ngStyle)="{'width':progress+'%'}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+  
+    </div>
+    </div>
+  </div>
+    
+
+  <div class="card">
+   
+     <h3>     {{currentEntity.question}}</h3>
+  </div>  
+     <ol>
+    <li>
+      
+       <div  class="card">
+
+         <label><input type="checkbox" (ngModel)="isChecked" (change)="addReponce(reponce[0],currentEntity.id_qs_qcm)" (change)="updateChecked()"  /> {{currentEntity.rep1.textrep1}}   </label>  <br>
+    
+    
+       </div>
+       
+    
+    </li>
+    
+    
+    <li>
+       <div class="card">
+         <label><input type="checkbox" (ngModel)="isChecked2" (change)="addReponce(reponce[1],currentEntity.id_qs_qcm)" (change)="updateChecked()" /> {{currentEntity.rep2.textrep2}}  </label>  <br>
+       </div>
+    </li>
+    
+    <li>
+       <div class="card">
+         <div><input type="checkbox" (ngModel)="isChecked3" (change)="addReponce(reponce[2],currentEntity.id_qs_qcm)" (change)="updateChecked()" /> {{currentEntity.rep3.textrep3}}    </div>  <br>
+       </div>
+    </li>
+    
+    <li>
+       <div class="card">
+         <label><input type="checkbox" (ngModel)="isChecked4" (change)="addReponce(reponce[3],currentEntity.id_qs_qcm)" (change)="updateChecked()" /> {{currentEntity.rep4.textrep4}}    </label>  <br>
+       </div>
+    </li>
+     
+    </ol>
+  
+       <div class="d-flex justify-content-between">
+         <button class="btn btn-info py-3 px-5 m-4 mx-auto"  *ngIf="currentIndex  !== listQcms.length" (click)="getNextQcm()" [disabled]="!isChecked && !isChecked2 && !isChecked3 && !isChecked4"> <i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i>Question suivante</button>
+         <button class="btn btn-info py-3 px-5 m-4 mx-auto"  *ngIf="currentIndex  === listQcms.length"  (click)="quitterletest()" >enregistrer et voir le score</button>   
+        </div>
+      </div> 
+</div>
+  <div id="id-card">
+<div class="container" *ngIf="showresultat2">
+  <div class="custom-border">
+    <img src ="assets/img/angular.png" width="90" alt="logo">
+    <div class="d-flex justify-content-around py-3"> 
+      <h4 style="font-family:cursive;" style="font-family: cursive;text-align:center"> 
+        Certification Angular <br> </h4></div>
+   
+  </div><br> <br><br>
+  <div *ngIf ="bewbew" class="row d-flex justify-content-between">
+    <div class="result text-left col-md-6 col-sm-12">
+      <h1 style="font-family: cursive;text-align:center">  Score :{{score}} %    </h1> 
+    </div>
+     
+    </div>
+  <div class="custom-border">
+    <div *ngFor="let response of listQcms; let i = index">     
+      <h4>  {{i+1}}   {{response.question}} </h4>
+       
+         <h5 [class.text-vert-gras]="this.response.rep1.iscorrect === true">{{currentEntity.rep1.textrep1}} </h5>
+         <h5 [class.text-vert-gras]="this.response.rep2.iscorrect === true">{{currentEntity.rep2.textrep2}} </h5>
+         <h5 [class.text-vert-gras]="this.response.rep3.iscorrect === true">{{currentEntity.rep3.textrep3}}</h5>
+         <h5 [class.text-vert-gras]="this.response.rep4.iscorrect === true">{{currentEntity.rep4.textrep4}} </h5>
+      
+       <p> Le temps de réfléchissement de question : {{ list[i] }} ⏱ Secondes </p><br>
+    </div>
+  
+      
+        
+  </div>  
+  <button (click)="generatePDF()" > print pdf </button>
+
+ 
+ 
+
+ <!-- <canvas id="qrcode"></canvas> temchyy -->
+</div>
+</div>
+<div *ngIf="showqrcode">
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Certification</title>
+    
+  </head>
+  <body>
+    <div class="certification">
+   <div class="title">
+    <div class="image-container">
+      <img src="assets/img/logo.png" width="40" class="logo">
+       <img [src]="qrCodeData" alt="QR Code">
+      </div>
+      <h1>Certificate of Appreciation   </h1>
+      <h2>Angular </h2>
+  </div><br><br> <br> <br>
+  <div>
+      <h2> This Certificate is proudly presented to :</h2><h6><span class="name">John Doe</span></h6>
+  
+  </div>
+    </div>
+  </body>
+  </html>
+</div>
+    </div>
+  
+</div>
+
+ 
+
+ 
