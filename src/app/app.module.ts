@@ -14,7 +14,8 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardUserComponent } from './board-user/board-user.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-
+import { InscriptionComponent } from './inscription/inscription.component';
+import { DetailCourComponent } from './detail-cour/detail-cour.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,13 +25,16 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    InscriptionComponent,
+    DetailCourComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

@@ -17,6 +17,7 @@ export class TestService {
   url5='http://localhost:8086/api/pdf/generate-pdf';
   Urlcaappython = 'http://localhost:5000/cap';
   private apiUrl = 'http://localhost:8086/qcm/generateQRCode';
+  url6='http://localhost:8086/cour/showall';
   urlrec = 'http://127.0.0.1:5000/ma_fonction';
   constructor(private http :HttpClient ) { }
   options = { withCredentials: true };

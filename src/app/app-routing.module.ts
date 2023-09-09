@@ -8,6 +8,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { CoursesComponent } from './courses/courses.component';
+import { PassageTestComponent } from './passage-test/passage-test.component';
+import { DetailCourComponent } from './detail-cour/detail-cour.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,7 +22,11 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  {  path:'inscription', component: InscriptionComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path:'course',component:CoursesComponent},
+  { path:'passagedetest',component:PassageTestComponent},
+  { path:'detail-cour',component:DetailCourComponent}
 ];
 
 @NgModule({

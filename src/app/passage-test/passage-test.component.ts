@@ -2,13 +2,13 @@ import {Component, ElementRef,OnInit ,HostListener, ViewChild ,Input } from '@an
 import { Router } from '@angular/router';
 import { Test } from '../Models/question-qcm';
 import { TestService } from '../Services/test.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { Certification } from '../Models/cerification';
 import { HttpClient } from '@angular/common/http';
 //import * as jsPDF from 'jspdf';
 import jsPDF from 'jspdf';
 //import * as html2pdf from 'html2pdf.js';
-import * as  QRCode from 'qrcode';
+//import * as  QRCode from 'qrcode';
 import html2canvas from 'html2canvas';
 
 
@@ -63,7 +63,7 @@ progress: string = "0";
   //  document.addEventListener("keydown", this.fermerSiEchap);
   this.width=["25%","50%","75%","100%"];
  // this.startCounter();
- this.generateQRCode(this.url);
+ //this.generateQRCode(this.url);
 	}
   point:number = 0 ;
   POINTPDF = this.point.toString();
@@ -103,7 +103,7 @@ html2canvas(DATA).then((canvas) => {
   PDF.save('resultat.pdf');
   this.showqrcode =true ;
 
-  this.generateQRCodes();
+ // this.generateQRCodes();
   
   this.showresultat=false;
   this.showresultat2=false;
@@ -119,32 +119,32 @@ html2canvas(DATA).then((canvas) => {
   } 
   showqrcode:boolean= false;
 qrCodeData!: string;
-generateQRCodes(): void {
-  const url = 'http://localhost:4200/passagedestest'; // Remplacez par l'URL de la page que vous souhaitez encoder dans le QR code
+//generateQRCodes(): void {
+  //const url = 'http://localhost:4200/passagedestest'; // Remplacez par l'URL de la page que vous souhaitez encoder dans le QR code
 
-  QRCode.toDataURL(url, (err, dataURL) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
+  //QRCode.toDataURL(url, (err, dataURL) => {
+   // if (err) {
+     // console.error(err);
+     // return;
+    //}
 
-    this.qrCodeData = dataURL;
-  });
-}
+ //   this.qrCodeData = dataURL;
+  //});
+//}
 
-  generateQRCode(url: string): void {
+  //generateQRCode(url: string): void {
     
   
-    const qrCodeElement = document.getElementById('qrcode');
+  //  const qrCodeElement = document.getElementById('qrcode');
   
-    QRCode.toCanvas(qrCodeElement, url, (error) => {
-      if (error) {
-        console.error(error);
-      } else {
-        console.log('QR code generated successfully!');
-      }
-    });
-  }
+ //   QRCode.toCanvas(qrCodeElement, url, (error) => {
+   //   if (error) {
+     //   console.error(error);
+      //} else {
+       // console.log('QR code generated successfully!');
+     // }
+    //});
+  //}
   
  
   openFullscreen() {

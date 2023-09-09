@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../Services/auth.service';
 import { TestService } from '../Services/test.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,15 +14,18 @@ export class RegisterComponent implements OnInit {
     email: null,
     password: null,
     country: null,
-    birth_date: null
+    birth_date: null,
+ //   role: ["ROLE_USER","ROLE_Prof","ROLE_ADMIN"]
   };
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
-
-  constructor(private authService: AuthService,private articleService :TestService ) { }
+  showMessage: boolean = false;
+  message= "Your registration is successful!";
+  constructor(private authService: AuthService,private articleService :TestService ,private router:Router) { }
 
   ngOnInit(): void {
+ //   this.basculerverhomepage();
   }
 
   onSubmit(): void {
@@ -46,5 +50,20 @@ export class RegisterComponent implements OnInit {
   
     });
   
+  }
+  basculerverhomepage(){
+   if(this.isSuccessful=true){
+
+  alert("s'il vous plait restez correctement devant la camera pour prendre une capture de votre visage pour la vérification avant la passage de test de certification");
+  setTimeout(() => {
+    this.router.navigateByUrl('/home');
+    }, 10000);
+      
+   }
+  }
+  
+  bothfonction(){
+    this.basculerverhomepage();
+    this.addimages();
   }
 }
