@@ -11,4 +11,7 @@ public interface Certif_testRepository extends CrudRepository<Certif_test,Long> 
 
     @Query(value="select count(*) from certif_test l where l.problem_id_pr:problem_id_pr",nativeQuery=true)
     long Test_Certifprob(@Param("problem_id_pr") long problem_id_pr);
+
+    @Query(value = "select count(*) from certif_test;", nativeQuery=true)
+    int nubtest();
 }

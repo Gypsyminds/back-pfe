@@ -10,6 +10,7 @@ public interface ICourse {
 
     public Course addCour(Course s);
     public Course retrieveCourseById(Long id);
+
 }
 
 

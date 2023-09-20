@@ -11,6 +11,8 @@ public class pdfservice {
     Question_qcmRepository question_qcmRepository;
     @Autowired
     CertificationRepository certificationRepository;
+  //  @Autowired
+    //Filerepo courrep ;
    // public void generatePDF(String data, String filePath) {
     //    try (PDDocument document = new PDDocument()) {
         //    PDPage page = new PDPage();
@@ -44,4 +46,9 @@ public class pdfservice {
             //document.close();
            // return "123";
     //}
+     //  public File store(MultipartFile file) throws IOException {
+       //    String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+       //    File FileDB = new File(fileName, file.getContentType(), file.getBytes());
+      //    return courrep.save(FileDB);
+     //  }
 }

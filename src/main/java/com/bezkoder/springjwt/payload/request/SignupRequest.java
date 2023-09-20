@@ -1,5 +1,6 @@
 package com.bezkoder.springjwt.payload.request;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.validation.constraints.*;
@@ -13,7 +14,8 @@ public class SignupRequest {
   @Size(max = 50)
   @Email
   private String email;
-
+  private String country;
+  private Date birth_date;
   private Set<String> role;
 
   @NotBlank
@@ -32,10 +34,12 @@ public class SignupRequest {
     return email;
   }
 
+
   public void setEmail(String email) {
     this.email = email;
   }
-
+public String getCountry(){return country ;}
+  public void setCountry(String country){this.country = country;}
   public String getPassword() {
     return password;
   }
@@ -43,7 +47,8 @@ public class SignupRequest {
   public void setPassword(String password) {
     this.password = password;
   }
-
+public Date getBirth_date(){return this.birth_date = birth_date;}
+  public void setBirth_date(Date birth_date){this.birth_date =birth_date;}
   public Set<String> getRole() {
     return this.role;
   }

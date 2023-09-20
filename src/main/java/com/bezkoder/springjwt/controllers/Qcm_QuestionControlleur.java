@@ -1,9 +1,11 @@
 package com.bezkoder.springjwt.controllers;
 
+import com.bezkoder.springjwt.Repositery.Certif_testRepository;
 import com.bezkoder.springjwt.Repositery.CertificationRepository;
 import com.bezkoder.springjwt.Repositery.Question_qcmRepository;
 import com.bezkoder.springjwt.Services.ICondidat;
 import com.bezkoder.springjwt.Services.IQuestion_qcm;
+import com.bezkoder.springjwt.models.Certif_test;
 import com.bezkoder.springjwt.models.Certification;
 import com.bezkoder.springjwt.models.Question_qcm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -35,7 +38,8 @@ public class Qcm_QuestionControlleur {
     Question_qcmRepository question_qcmRepository;
     @Autowired
     CertificationRepository certificationRepository;
-
+@Autowired
+    Certif_testRepository certifrepo;
     @PostMapping(value = "/add-Qcm")
     public Question_qcm addQcm(@RequestBody Question_qcm s) {
         return iQuestion_qcm.addQcm(s);
@@ -92,10 +96,10 @@ public class Qcm_QuestionControlleur {
     @PostMapping(value="AddFile/{qcm}/{certif}")
     public String Addfile(@RequestBody String reponse ,@PathVariable Long qcm ,@PathVariable Long certif) throws IOException {
         Question_qcm qcms = question_qcmRepository.findById(qcm).orElse(null);
-        Certification certifs = certificationRepository.findById(certif).orElse(null);
+        certif = 1L;
        // Long socors = question_qcmRepository.score(qcms.getCertif().getId_test());
 
-        FileWriter fileWriter = new FileWriter(certifs.getCondidat().getId().toString()+certifs.getCertif_test().getTest_title(),true);
+        FileWriter fileWriter = new FileWriter(qcms.getCertif().getTest_title());
         fileWriter.write("Question : ");
         fileWriter.write(qcm.toString());      fileWriter.write("--------- ");
         fileWriter.write("Réponse : ");

@@ -21,8 +21,9 @@ public class Profe implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_profe ;
     private String full_name ;
-   private String  speciality ;
-
+    private String  speciality ;
+    private String numportable;
+    private String email ;
    @OneToMany(mappedBy = "profe")
     private Set<Session> sessionSet;
 

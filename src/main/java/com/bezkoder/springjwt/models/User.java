@@ -2,7 +2,6 @@ package com.bezkoder.springjwt.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Blob;
@@ -60,10 +59,12 @@ public class User {
   public User() {
   }
 
-  public User(String username, String email, String password) {
+  public User(String username, String email, String password,String country , Date birth_date) {
     this.username = username;
     this.email = email;
     this.password = password;
+    this.country = country ;
+    this.birth_date = birth_date;
   }
 
   public Long getId() {
@@ -93,7 +94,8 @@ public class User {
   public String getPassword() {
     return password;
   }
-
+public Date getBirth_date(){ return birth_date;}
+  public void setBirth_date(Date birth_date){this.birth_date = birth_date;}
   public void setPassword(String password) {
     this.password = password;
   }
