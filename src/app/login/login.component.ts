@@ -1,6 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { TokenStorageService } from '../Services/token-storage.service';
 import { AuthService } from '../Services/auth.service';
+import { TestService } from '../Services/test.service';
+import { CourseModule } from '../course/course.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +19,19 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
-
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  //cour!:CourseModule;
+  
+  cour :CourseModule={
+    id_course : null,
+    courstitel: null,
+    description: null,
+    prix: null,
+    duree: null,
+    niveaux : null,
+    
+    };
+  
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private test:TestService,private router:Router) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -49,6 +63,23 @@ export class LoginComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
+  
+  ajoutercour(c :any){
+    this.test.addcour(this.cour).subscribe(()=>{
+     // this.form = false;
+    });
+  
+   
+  }
+  basculerversadmin(){
+    if(this.form.email='laajili.khouloud@esprit.tn'){
+      this.router.navigateByUrl('/user');
+    }
+      }
+      bothfunction(){
+        this.basculerversadmin();
+        this.onSubmit();
+      }
 }
   
 

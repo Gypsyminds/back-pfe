@@ -2,7 +2,6 @@ import {Component, ElementRef,OnInit ,HostListener, ViewChild ,Input } from '@an
 import { Router } from '@angular/router';
 import { Test } from '../Models/question-qcm';
 import { TestService } from '../Services/test.service';
-
 import { Certification } from '../Models/cerification';
 import { HttpClient } from '@angular/common/http';
 //import * as jsPDF from 'jspdf';
@@ -49,8 +48,7 @@ interval$: any;
 counter = 30;
 public points: number = 0;
 url = 'http://localhost:4200/passagedestest';
-score : number =0;
-bewbew =false ;
+
 @ViewChild('myDiv') myDiv!: ElementRef ;
 progress: string = "0";
   isFullScreen: boolean = false;
@@ -94,7 +92,7 @@ progress: string = "0";
 //});
 let DATA: any = document.getElementById('id-card');
 html2canvas(DATA).then((canvas) => {
-  let fileWidth = 200;
+  let fileWidth = 208;
   let fileHeight = (canvas.height * fileWidth) / canvas.width;
   const FILEURI = canvas.toDataURL('image/png');
   let PDF = new jsPDF('p', 'mm', 'a4');
@@ -103,7 +101,7 @@ html2canvas(DATA).then((canvas) => {
   PDF.save('resultat.pdf');
   this.showqrcode =true ;
 
- // this.generateQRCodes();
+  ////this.generateQRCodes();
   
   this.showresultat=false;
   this.showresultat2=false;
@@ -120,31 +118,31 @@ html2canvas(DATA).then((canvas) => {
   showqrcode:boolean= false;
 qrCodeData!: string;
 //generateQRCodes(): void {
-  //const url = 'http://localhost:4200/passagedestest'; // Remplacez par l'URL de la page que vous souhaitez encoder dans le QR code
+ // const url = 'http://localhost:4200/passagedestest'; // Remplacez par l'URL de la page que vous souhaitez encoder dans le QR code
 
-  //QRCode.toDataURL(url, (err, dataURL) => {
-   // if (err) {
-     // console.error(err);
-     // return;
-    //}
+ // QRCode.toDataURL(url, (err, dataURL) => {
+  //  if (err) {
+   //   console.error(err);
+   //   return;
+  //  }
 
- //   this.qrCodeData = dataURL;
+    //this.qrCodeData = dataURL;
   //});
 //}
 
   //generateQRCode(url: string): void {
     
   
-  //  const qrCodeElement = document.getElementById('qrcode');
+    //const qrCodeElement = document.getElementById('qrcode');
   
- //   QRCode.toCanvas(qrCodeElement, url, (error) => {
-   //   if (error) {
-     //   console.error(error);
-      //} else {
-       // console.log('QR code generated successfully!');
-     // }
-    //});
-  //}
+    //QRCode.toCanvas(qrCodeElement, url, (error) => {
+      //if (error) {
+        //console.error(error);
+     // } else {
+     //   console.log('QR code generated successfully!');
+    //  }
+   // });
+ // }
   
  
   openFullscreen() {
@@ -178,28 +176,31 @@ qrCodeData!: string;
  
   getAllQcms() {
     this.articleService.getAllQcms().subscribe(listQcms => {
-     
+      
+   
     setInterval(() => {
     
         this.counter--;
-       
+        
         if (this.counter == 0){
           this.counter = 30;
           this.testrep1();
           this.testrep2();
           this.testrep3();
           this.testrep4();        
-         this.onButtonClick();
+          this.currentEntity = this.listQcms[this.currentIndex];
+          this.currentIndex++;
+             this.onButtonClick();
             this.getProgressPercent();
-            this.temps= 30 ;
-            this.list.push(this.temps);
-           // this.currentEntity = this.listQcms[this.currentIndex];
-            //this.currentIndex++;
+         //   this.generatePDF()
            }
-           if(this.counter == 1 && this.currentIndex == this.listQcms.length){
-              this.showresultat2 = true;   
-             } 
           
+           if((this.counter ==1) && (this.currentIndex == this.listQcms.length-1)){
+            this.showresultat2 =true;
+          
+           // this.router.navigateByUrl('/home');
+         //  this.generatePDF();
+           }
            
    }, 1000);
    
@@ -214,10 +215,10 @@ qrCodeData!: string;
   this.currentEntity = listQcms[i];
  
   this.currentEntity = this.listQcms[this.currentIndex];
-  
+  this.questions = this.listQcms[this.currentIndex].question;
  this.currentIndex++;
  
- ;
+  this.index++;
   if( (!this.isChecked && !this.isChecked2 && !this.isChecked3 && !this.isChecked4 )) {
     // alert("Aucune case à cocher n'a été cochée!");
   this.addReponce(this.reponce[4],this.listQcms[this.currentIndex-1].id_qs_qcm);
@@ -225,15 +226,14 @@ qrCodeData!: string;
   
     }
 
-    
-   
+  
   
  // 
     
 
    
  }, i * 30000);
-
+  
      }
 
 }
@@ -247,10 +247,19 @@ scoreqcm:number = 0;
 
 
 
+getAllQuestions() {
+  this.articleService.getQuestionJson()
+    .subscribe(res => {
+  this.questionList = res.questions;
+
+    });
+}
 
 
 
 
+score : number =0;
+bewbew =false ;
 getscore(){
 
   this.score =(( this.point /16)* 100 );
@@ -318,14 +327,13 @@ getProgressPercent() {
   // Redirigez ici vers un autre composant ou effectuez une action supplémentaire.
 }
   }
-  image_data:any;
+
  
   executeBothFunctions() {
   this.getAllQcms();
   this.openFullscreen();
   this.onClick();
   this.hideText();
-  this.addcappython(this.image_data);
  // this.getstart();
 
   // this.onEscapeKey();
@@ -344,14 +352,12 @@ list:number [] =[];
   if (this.currentIndex <= this.listQcms.length) {
    this.currentEntity = this.listQcms[this.currentIndex];
    this.currentIndex++;
-   this.temps= (30 - this.counter);
+   this.temps= this.counter;
    this.list.push(this.temps);
    this.counter = 30;
 //this.onButtonPress();
     this.getProgressPercent() ;
     this.onButtonClick();
-    
-
   }
   }
  
@@ -451,7 +457,7 @@ if (!this.currentEntity.rep4.iscorrect && this.isChecked4){
      this.hideresult();
      this.showresultat2 =true;
      this.getscore();
-     this.temps= (30 - this.counter);
+     this.temps= this.counter;
    this.list.push(this.temps);
     // this.onButtonClicked();
     // this.score;
@@ -471,13 +477,8 @@ if (!this.currentEntity.rep4.iscorrect && this.isChecked4){
    
   });
 
- }
  
- addcappython(image_data:any){
-  this.articleService.addProduct(image_data).subscribe(()=>{
-
-  });
- }
+  }
 addpdfs(reponse: any,id_qs_qcm:any){
   this.articleService.addpdf(reponse,id_qs_qcm).subscribe(() =>{
 

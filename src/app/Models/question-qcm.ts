@@ -1,5 +1,4 @@
-import { Certification } from "./cerification";
-import { ReponseQcm } from "./reponce-qcm";
+
 
 export class Test {
 

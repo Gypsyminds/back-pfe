@@ -1,6 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
-import { DOCUMENT } from '@angular/common';
+
+import { TestService } from '../Services/test.service';
+import { CourseModule } from '../course/course.module';
+
+//import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-userdash',
@@ -8,8 +11,45 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./userdash.component.css']
 })
 export class UserdashComponent implements OnInit  {
-  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) {}
+  constructor( private test:TestService ) {}
+  cour !:CourseModule;
+  closeResult! : string;
 ngOnInit(): void {
-    
+ 
+  this.cour = {
+  id_course : null,
+  courstitel: null,
+  description: null,
+  prix: null,
+  duree: null,
+  niveaux : null,
+  
+  };
+
 }
+ajoutercour(c :any){
+  this.test.addcour(this.cour).subscribe(()=>{
+   // this.form = false;
+  });
+
+ 
+}
+
+
+//  private getDismissReason(reason: any): string {
+   // if (reason === ModalDismissReasons.ESC) {
+ //     return 'by pressing ESC';
+  //  } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+  //    return 'by clicking on a backdrop';
+   // } else {
+  //    return  `with: ${reason}`;
+   // }
+ // }
+ // closeForm(){
+
+ // }
+ // cancel(){
+   // this.form = false;
+ // }
+
 }

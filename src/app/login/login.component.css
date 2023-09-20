@@ -1,9 +1,9 @@
 .input-with-icon {
-    position: relative;
+    text-align: center;
 }
 
 .input-with-icon i {
-    position: absolute;
+    text-align: center;
     left: 10px; /* Ajustez la valeur selon vos besoins */
     top: 50%;
     transform: translateY(-50%);

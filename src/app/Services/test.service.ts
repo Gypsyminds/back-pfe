@@ -4,9 +4,13 @@ import { Observable } from 'rxjs';
 import { Test } from '../Models/question-qcm';
 import { Certification } from '../Models/cerification';
 import { Condidat } from '../Models/condidat.module';
+import { CourseModule } from '../course/course.module';
+import { ProfModule } from '../prof/prof.module';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class TestService {
  
   Url ='http://localhost:8086/qcm/qcm/1';
@@ -17,8 +21,12 @@ export class TestService {
   url5='http://localhost:8086/api/pdf/generate-pdf';
   Urlcaappython = 'http://localhost:5000/cap';
   private apiUrl = 'http://localhost:8086/qcm/generateQRCode';
-  url6='http://localhost:8086/cour/showall';
+  url='http://localhost:8086/cour/showall';
   urlrec = 'http://127.0.0.1:5000/ma_fonction';
+  url7='http://localhost:8086/cour/add-cour';
+ url8='http://localhost:8086/cour/showusers';
+url9='http://localhost:8086/cour/nubrcour';
+url10='http://localhost:8086/cour/profs'
   constructor(private http :HttpClient ) { }
   options = { withCredentials: true };
 
@@ -26,8 +34,47 @@ addProduct( condidat:Condidat): Observable<any> {
   return this.http.post(this.Urlcaappython,condidat);
 }
  getAllQcms() {
-   return this.http.get<Test[]>(`${this.Url}`);
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+    })
+  }
+   return this.http.get<Test[]>(`${this.Url}`,httpOptions);
    
+ }
+ getnubrcour():Observable<Number>{
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+    })
+  }
+  return this.http.get<Number>(`${this.url9}`,httpOptions)
+ }
+ getAllprof(){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+    })
+  }
+  return this.http.get<ProfModule[]>(`${this.url10}`,httpOptions);
+ }
+ getallusers(){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+    })
+  }
+  return this.http.get<Condidat[]>(`${this.url8}`,httpOptions);
+ }
+ getAllcours(){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+    })
+    
+  }
+  { responseType: 'blob' }
+  return this.http.get<CourseModule[]>(`${this.url}`,httpOptions);
  }
 gettest() {
   return this.http.get<Certification[]>(`${this.url3}`);
@@ -51,6 +98,14 @@ getscore(){
     })
   }
    return this.http.post(`${this.Url2}/${id_qs_qcm}/1`,reponces,httpOptions);
+ }
+ addcour(c:any){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+    })
+  }
+  return this.http.post(`${this.url7}`,c,httpOptions);
  }
 
  generateQRCode(data: string) {

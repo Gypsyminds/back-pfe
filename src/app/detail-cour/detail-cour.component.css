@@ -80,7 +80,7 @@ main {
     padding: 10px; /* Espacement interne pour une meilleure lisibilité */
     border: 1px solid #cccccc; /* Ajout d'une bordure pour séparer les textes */
 }
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
 
 * {
   font-family: Open Sans;

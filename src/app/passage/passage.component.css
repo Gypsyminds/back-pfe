@@ -1,0 +1,131 @@
+
+
+  
+  li {
+    list-style-type: none;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  
+  li .card:hover {
+    border: 1px solid blue;
+  }
+  
+  ol {
+    padding: 0;
+  }
+  .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .text-vert-gras {
+    color: green ;
+  }
+ 
+  
+  .custom-border {
+    border: 2px solid black;
+    padding: 10px;
+  }
+  .certification {
+    text-align: center;
+    background-color: #F8F8F8;
+    padding: 20px;
+    width: 800px;
+    margin: 0 auto;
+    border: 1px solid blue;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .name {
+    font-weight: bold;
+  }
+  
+  .date {
+    font-style: italic;
+  }
+  
+  img {
+    width: 100px;
+    margin-top: 20px;
+    float: right; 
+    height: auto; 
+  }
+  img {
+    width: 100px;
+    margin-top: 20px;
+    float: right; 
+    height: auto; 
+  }
+  .image-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .image-container img {
+    max-width: 50%; /* Ajustez la taille des images selon vos besoins */
+  }
+
+  button {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.7em 2em;
+    border: 3px solid #00d9ff;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: #00d9ff;
+    text-decoration: none;
+    transition: 0.3s ease all;
+    z-index: 1;
+  }
+  
+  button:before {
+    transition: 0.5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: #00d9ff;
+    z-index: -1;
+  }
+  
+  button:hover, button:focus {
+    color: white;
+  }
+  
+  button:hover:before, button:focus:before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+  }
+  
+  button:active {
+    transform: scale(0.9);
+  }
+  .header{
+    padding-bottom: 20px;
+  }

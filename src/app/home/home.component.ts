@@ -9,14 +9,23 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
+  showcour:boolean = false;
   constructor(private articleService :TestService , private router:Router, private http:HttpClient) { }
   ngOnInit(): void {
     //throw new Error('Method not implemented.');
   }
 
 affichercourses(){
-  this.router.navigate(['/course']);
+  
 }
-   
+getAllcours(){
+ // this.router.navigate(['/courses']);
+ this.showcour=true;
+  this.articleService.getAllcours().subscribe(res => {
+    this.listcour = res 
+  });
+ 
+ }
+  listcour:any;
 }
 

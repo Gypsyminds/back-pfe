@@ -1,11 +1,12 @@
+import { Role } from "./role.enum";
 
 export class Condidat { 
-  id_condidat:any ;
-   full_name : any ;
+  id:any ;
+   username : any ;
    birth_date : any;
    email : any ;
-   login :any ;
    password :any ;
    country :any;
   image :any  ;
+  role!:Role;
 }

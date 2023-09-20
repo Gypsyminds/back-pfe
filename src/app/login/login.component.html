@@ -1,15 +1,13 @@
-<div class="col-md-12">
+<div class="col-sm-12 col-sm-offset-0">
   <div class="card card-container">
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="image-container set-full-height" style="background-image: url('assets/assetss/img/pngtree-educational-book-bifurcation-background-image_398155.jpg')">
         <!--   Creative Tim Branding   -->
-        <a href="https://creative-tim.com">
-          
-        </a>
+       
 <div class="container">
           <div class="row">
-            <div class="col-sm-6 col-sm-offset-1">
+            <div class="col-sm-7 col-sm-offset-2">
                    <!--      Wizard container        -->
              <div class="wizard-container">
                 <div class="card wizard-card" data-color="orange" id="wizardProfile">
@@ -17,17 +15,17 @@
                   <div class="wizard-header text-center">
                     <h3 class="wizard-title">Bienvenue </h3>
         <B><p class="category"></p></B>
-                </div>
+                  </div>
 <div class="tab-content" class="tab-pane">        
    
     <form
       *ngIf="!isLoggedIn"
       name="form"
-      (ngSubmit)="f.form.valid && onSubmit()"
+      (ngSubmit)="f.form.valid && bothfunction()"
       #f="ngForm"
       novalidate
     >
-      <div class="form-group" class="col-sm-6 col-sm-offset-1;input-with-icon">
+      <div class="form-group" class="col-sm-6 col-sm-offset-1;wizard-header">
         <label for="username">Username</label>
         <input
           type="text"
@@ -38,7 +36,7 @@
           #username="ngModel"
           style="border-color:goldenrod"
           placeholder="Nom  "
-        />
+        /><br>
         <div
           class="alert alert-danger"
           role="alert"
@@ -58,8 +56,8 @@
           minlength="6"
           #password="ngModel"
           style="border-color:goldenrod"
-          placeholder="Nom  "
-        />
+          placeholder="Mot de passe  "
+        /><br>
         <div
           class="alert alert-danger"
           role="alert"
@@ -72,6 +70,7 @@
         </div>
         <br> <br>
       </div>
+      
       <div class="form-group" class="col-sm-4 col-sm-offset-3">
         <button class="btn btn-primary btn-block" style="border-color:goldenrod;background-color: chocolate;">
           Login
@@ -90,11 +89,15 @@
 </div>
     <div class="alert alert-success" *ngIf="isLoggedIn">
       Logged in as {{ roles }}.
+     
     </div>
+
                   </form>
+                  
+                  
                 </div>
              </div>
-            </div>
+            
           </div>
 </div>
       </div>

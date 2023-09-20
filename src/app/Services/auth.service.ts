@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Role } from '../Models/role.enum';
 
 const AUTH_API = 'http://localhost:8086/api/auth/';
 const path ='p://127.0.0.1:5000/ma_fonction';
@@ -28,6 +29,7 @@ export class AuthService {
       password,
       country,
       birth_date,
+      
     
     }, httpOptions);
   }

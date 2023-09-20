@@ -7,7 +7,7 @@
 
 li {
   list-style-type: none;
-  //cursor: pointer;
+  cursor: pointer;
   margin: 10px 0;
 }
 
@@ -29,7 +29,7 @@ ol {
 .container {
   position: relative;
   padding: 10px; 
- 
+ background-color: aqua;
 }
 
 

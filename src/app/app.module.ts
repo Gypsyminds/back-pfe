@@ -1,8 +1,12 @@
+
+
+
+import { CommonModule } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -16,6 +20,9 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { DetailCourComponent } from './detail-cour/detail-cour.component';
+import { PassageComponent } from './passage/passage.component';
+import { CoursesComponent } from './courses/courses.component';
+import { FormGroup, FormControl } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,13 +34,20 @@ import { DetailCourComponent } from './detail-cour/detail-cour.component';
     BoardModeratorComponent,
     BoardUserComponent,
     InscriptionComponent,
-    DetailCourComponent
+    DetailCourComponent,
+    PassageComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    CommonModule,
+   
+   
+    
+  
     
   ],
   providers: [authInterceptorProviders],

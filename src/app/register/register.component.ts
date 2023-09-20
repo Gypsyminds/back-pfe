@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../Services/auth.service';
 import { TestService } from '../Services/test.service';
 import { Router } from '@angular/router';
+import { Role } from '../Models/role.enum';
 
 @Component({
   selector: 'app-register',
@@ -23,14 +24,16 @@ export class RegisterComponent implements OnInit {
   showMessage: boolean = false;
   message= "Your registration is successful!";
   constructor(private authService: AuthService,private articleService :TestService ,private router:Router) { }
-
+role!:Set<any>;
+//role!:Role;
   ngOnInit(): void {
  //   this.basculerverhomepage();
+ //this.role=["ROLE_USER","ROLE_Prof"]
   }
 
   onSubmit(): void {
     const { username, email, password ,country ,birth_date} = this.form;
-
+    
     this.authService.register(username, email, password ,country ,birth_date).subscribe(
       data => {
         
@@ -63,7 +66,10 @@ export class RegisterComponent implements OnInit {
   }
   
   bothfonction(){
-    this.basculerverhomepage();
-    this.addimages();
+    this.onSubmit();
+   // this.addimages();
+    //this.basculerversadmin();
   }
+
 }
+
