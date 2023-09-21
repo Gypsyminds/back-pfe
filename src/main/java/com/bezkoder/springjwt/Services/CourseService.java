@@ -20,6 +20,7 @@ public class CourseService implements ICourse{
     @Override
     public Course addCour(Course s) {
         //    s.setDate_start(LocalDateTime.now());
+
         return icourse.save(s);
     }
     @Override

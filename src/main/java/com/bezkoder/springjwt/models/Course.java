@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Blob;
 import java.util.Set;
 
 @Entity
@@ -29,10 +27,12 @@ public class Course implements Serializable {
     private String niveaux ;
     private String lien_youtube;
   //  private File file;
+  @Lob
+  private byte[] file;
     @OneToMany(mappedBy = "course")
     private Set<Session> sessionSet;
 
+    Long filepdf;
 
-    public Course(String fileName, String contentType, byte[] bytes) {
-    }
+
 }

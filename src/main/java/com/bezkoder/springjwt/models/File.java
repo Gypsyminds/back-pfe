@@ -1,30 +1,40 @@
 package com.bezkoder.springjwt.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Entity
+//@Table(name="image_model")
 @AllArgsConstructor
-public class File  {
+@Data
+@NoArgsConstructor
+@ToString
+public class File implements Serializable  {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
 
-    private String id;
+    private Long id;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "type")
     private String type;
 
     @Lob
-    private byte[] data;
-    public File(String name, String type, byte[] data) {
+    @Column(name = "pic")
+    private byte[] pic;
+
+    //Custom Construtor
+    public File(String name, String type, byte[] pic) {
         this.name = name;
         this.type = type;
-        this.data = data;
+        this.pic = pic;
     }
+    private String url;
+
+
 }
