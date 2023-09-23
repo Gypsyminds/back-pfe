@@ -8,4 +8,5 @@ export class CourseModule {
   niveaux : any;
   module : any
   langue : any ; 
+  lien_youtube :any;
  }

@@ -56,6 +56,10 @@
         <div class="texte" class="col-lg-8">
             <h2><u>Description :</u></h2>
          <h3> {{cours.description}}  </h3>
+         <video controls width="640" height="360">
+            <source [src]="cours.lien_youtube" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
 
 <div class="methode">
     <h2 class="course-title text-black"><u>Méthode :</u></h2>
@@ -132,8 +136,9 @@
                 </ul>
                 <hr>
               <br><br>
-                <div class="buy-btn"><a href="http://localhost:4200/passage" class="btn btn-main btn-block">S'inscrire</a></div>
-            
+              
+                <button (click)="onclick()" class="btn btn-main btn-block">S'inscrire</button>
+          
             </div>
            
 
@@ -148,5 +153,8 @@
 
 </body>
 </div>
+<div  *ngIf ="affforminscri">
+   
 
+</div>
 

@@ -15,8 +15,8 @@ affdescription:boolean=false;
 desaffcour:boolean =false;
 listcour:any;
 cours :any;
-
-
+affforminscri:boolean=false ;
+//url="assets/cc.mp4";
   constructor(private articleService :TestService) { }
  
 
@@ -47,4 +47,9 @@ this.desaffcour = false;
       });
     }
    
+    onclick(){
+      this.affforminscri = true ;
+      this.affdescription = false;
+     // this.desaffcour = false;
+    }
 }
