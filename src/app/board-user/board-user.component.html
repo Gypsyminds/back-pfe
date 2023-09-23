@@ -223,6 +223,19 @@
                                                     style="border-color:rgb(60, 32, 218)"
                                                     placeholder="niveaux  "
                                                   /><br>
+                                                  <div>
+                                                    <input type="file" (change)="onFileChanged($event)">
+                                                
+                                                   
+                                                </div>
+                                                
+                                                <input type="button" (click)="onUpload()" value="upload">
+                                                
+                                                <hr />
+                                                
+                                                Received Image:
+                                                
+                                             
                                                     <button class="btn btn-success py-2 px-3 m-4 mx-auto" style="background-color: green;"   (click)="ajoutercour(cour)">ajouter</button>
                                                 </div>
                                                                   </form>
@@ -247,6 +260,7 @@
                                             <td>{{p.prix}}</td>
                                             <td>{{p.duree}}</td>
                                             <td>{{p.niveaux}}</td>
+                                          
                                         </tr>
                                       </table>
                                     </div>

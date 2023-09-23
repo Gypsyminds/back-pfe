@@ -27,6 +27,9 @@ export class TestService {
  url8='http://localhost:8086/cour/showusers';
 url9='http://localhost:8086/cour/nubrcour';
 url10='http://localhost:8086/cour/profs'
+url11='http://localhost:8086/api/pdf/upload';
+url12='http://localhost:8086/cour/showCourse';
+
   constructor(private http :HttpClient ) { }
   options = { withCredentials: true };
 
@@ -41,6 +44,14 @@ addProduct( condidat:Condidat): Observable<any> {
   }
    return this.http.get<Test[]>(`${this.Url}`,httpOptions);
    
+ }
+ getcour(id :any){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+    })
+  }
+  return this.http.get<CourseModule[]>(`${this.url12}/${id}`,httpOptions);
  }
  getnubrcour():Observable<Number>{
   const httpOptions = {
@@ -132,6 +143,15 @@ addpdf(reponse :any,id_qs_qcm:any ){
 addimage() {
   
   return this.http.get(this.urlrec);
+}
+addfile(){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+       responseType: 'blob' 
+    })
+  }
+  return this.http.post(`${this.url11}`,httpOptions)
 }
 
 

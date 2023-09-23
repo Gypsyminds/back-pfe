@@ -6,4 +6,6 @@ export class CourseModule {
   prix: any;
   duree: any;
   niveaux : any;
+  module : any
+  langue : any ; 
  }

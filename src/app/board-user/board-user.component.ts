@@ -13,15 +13,9 @@ export class BoardUserComponent implements OnInit {
   content?: string;
   affform :Boolean=false ;
   affcours:boolean= false;
-  cour :CourseModule={
-    id_course : null,
-    courstitel: null,
-    description: null,
-    prix: null,
-    duree: null,
-    niveaux : null,
-    
-    };
+
+ cour !:CourseModule ;
+  imgfile: any;
   constructor(private userService: UserService,private test:TestService,private http: HttpClient,private router:Router) { }
 
   ngOnInit(): void {
@@ -97,6 +91,11 @@ this.nbrcertif = data ;
       this.http.get<number>('http://localhost:8086/cour/nbrtest').subscribe(data => {
 this.nbrtest = data ;
       })
+    
+    }
+    uploadfile(){
+      this.test.addfile().subscribe(()=>{
+       });
     }
     affichercours(){
       this.affcours =true;
@@ -139,4 +138,41 @@ this.nbrtest = data ;
     affhome(){
       this.router.navigate(['/home']);
     }
+    public selectedFile:any;
+    public event1:any;
+    imgURL: any;
+    receivedImageData: any;
+    base64Data: any;
+    convertedImage: any;
+  
+    public  onFileChanged(event:any) {
+      console.log(event);
+      this.selectedFile = event.target.files[0];
+  
+      // Below part is used to display the selected image
+      let reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event2) => {
+        this.imgURL = reader.result;
+    };
+  
+   }
+    onUpload() {
+
+
+      const uploadData = new FormData();
+      uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
+    
+    
+      this.http.post('http://localhost:8086/api/pdf/upload', uploadData)
+      .subscribe(
+                   res => {console.log(res);
+                           this.receivedImageData = res;
+                           this.base64Data = this.receivedImageData.pic;
+                           this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data; },
+                   err => console.log('Error Occured duringng saving: ' + err)
+                );
+    
+    
+     }
 }

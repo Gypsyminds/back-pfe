@@ -24,6 +24,7 @@
     "jspdf": "^2.5.1",
     "ng-bootstrap": "^1.6.3",
     "ngx-bootstrap": "^11.0.2",
+    "ngx-pagination": "^6.0.3",
     "ngx-qrcode2": "^9.0.0",
     "primeicons": "^6.0.1",
     "qrcode": "^1.5.3",

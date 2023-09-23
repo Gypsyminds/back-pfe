@@ -21,15 +21,7 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   //cour!:CourseModule;
   
-  cour :CourseModule={
-    id_course : null,
-    courstitel: null,
-    description: null,
-    prix: null,
-    duree: null,
-    niveaux : null,
-    
-    };
+ 
   
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private test:TestService,private router:Router) { }
 
@@ -64,13 +56,7 @@ export class LoginComponent implements OnInit {
     window.location.reload();
   }
   
-  ajoutercour(c :any){
-    this.test.addcour(this.cour).subscribe(()=>{
-     // this.form = false;
-    });
   
-   
-  }
   basculerversadmin(){
     if(this.form.email='laajili.khouloud@esprit.tn'){
       this.router.navigateByUrl('/user');

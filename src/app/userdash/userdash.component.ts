@@ -16,15 +16,6 @@ export class UserdashComponent implements OnInit  {
   closeResult! : string;
 ngOnInit(): void {
  
-  this.cour = {
-  id_course : null,
-  courstitel: null,
-  description: null,
-  prix: null,
-  duree: null,
-  niveaux : null,
-  
-  };
 
 }
 ajoutercour(c :any){
