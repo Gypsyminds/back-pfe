@@ -9,4 +9,5 @@ export class CourseModule {
   module : any
   langue : any ; 
   lien_youtube :any;
+  filepdf :any ;
  }

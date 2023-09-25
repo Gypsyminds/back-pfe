@@ -26,7 +26,7 @@ const routes: Routes = [
   {  path:'inscription', component: InscriptionComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path:'courses',component:CoursesComponent},
-  { path:'passagedetests',component:PassageTestComponent},
+ // { path:'passagedetests',component:PassageTestComponent},
   {path:'passage',component:PassageComponent},
   { path:'detail-cour',component:DetailCourComponent}
 ];

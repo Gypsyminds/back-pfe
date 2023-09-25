@@ -6,6 +6,7 @@ import { Certification } from '../Models/cerification';
 import { Condidat } from '../Models/condidat.module';
 import { CourseModule } from '../course/course.module';
 import { ProfModule } from '../prof/prof.module';
+import { FileModule } from '../Models/file.module';
 
 @Injectable({
   providedIn: 'root'
@@ -29,12 +30,23 @@ url9='http://localhost:8086/cour/nubrcour';
 url10='http://localhost:8086/cour/profs'
 url11='http://localhost:8086/api/pdf/upload';
 url12='http://localhost:8086/cour/showCourse';
+url13='http://localhost:8086/api/pdf/files';
 
   constructor(private http :HttpClient ) { }
   options = { withCredentials: true };
 
 addProduct( condidat:Condidat): Observable<any> {
   return this.http.post(this.Urlcaappython,condidat);
+}
+getfiles(){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+     responseType: 'blob'  
+    
+    })
+  }
+  return this.http.get<FileModule>(`${this.url13}`,httpOptions);
 }
  getAllQcms() {
   const httpOptions = {

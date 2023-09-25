@@ -23,7 +23,6 @@ import { DetailCourComponent } from './detail-cour/detail-cour.component';
 import { PassageComponent } from './passage/passage.component';
 import { CoursesComponent } from './courses/courses.component';
 import { FormGroup, FormControl } from '@angular/forms';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +36,8 @@ import { FormGroup, FormControl } from '@angular/forms';
     InscriptionComponent,
     DetailCourComponent,
     PassageComponent,
-    CoursesComponent
+    CoursesComponent,
+    
   ],
   imports: [
     BrowserModule,

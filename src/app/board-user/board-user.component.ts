@@ -4,6 +4,7 @@ import { CourseModule } from '../course/course.module';
 import { TestService } from '../Services/test.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-board-user',
   templateUrl: './board-user.component.html',
@@ -29,10 +30,23 @@ export class BoardUserComponent implements OnInit {
     );
    this.affnubcours();
    this.affuser();this.affprof();this.affcertif();this.afftests();
+   this.cour={
+    id_course : null ,
+    courstitel :null ,
+    description: null,
+    prix: null,
+    duree: null,
+    niveaux : null,
+    module : null,
+    langue : null ,
+    lien_youtube :null,
+    filepdf :null ,
+   };
   }
   ajoutercour(c :any){
     this.test.addcour(this.cour).subscribe(()=>{
-     this.affform = false;
+    this.affform = false;
+  
     });
   
    
