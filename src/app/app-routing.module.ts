@@ -28,7 +28,8 @@ const routes: Routes = [
   { path:'courses',component:CoursesComponent},
  // { path:'passagedetests',component:PassageTestComponent},
   {path:'passage',component:PassageComponent},
-  { path:'detail-cour',component:DetailCourComponent}
+  { path:'detail-cour',component:DetailCourComponent},
+
 ];
 
 @NgModule({

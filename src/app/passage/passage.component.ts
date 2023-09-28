@@ -134,6 +134,7 @@ list:number [] =[];
  this.currentIndex++;
  
   this.index++;
+  this.getProgressPercent();
   if( (!this.isChecked && !this.isChecked2 && !this.isChecked3 && !this.isChecked4 )) {
     // alert("Aucune case à cocher n'a été cochée!");
   this.addReponce(this.reponce[4],this.listQcms[this.currentIndex-1].id_qs_qcm);
@@ -168,6 +169,7 @@ list:number [] =[];
     this.openFullscreen();
     this.onClick();
     this.hideText();
+    this.trainning();
    // this.getAllcours();
    // this.getstart();
   
@@ -336,5 +338,10 @@ generatePDF() {
     this.checkboxChecked = document.querySelectorAll('input[type="checkbox"]:checked').length > 0;
   
   
+    }
+    trainning(){
+      this.articleService.trainner().subscribe(()=>{
+  
+    });
     }
 }

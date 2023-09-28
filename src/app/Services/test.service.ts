@@ -31,7 +31,7 @@ url10='http://localhost:8086/cour/profs'
 url11='http://localhost:8086/api/pdf/upload';
 url12='http://localhost:8086/cour/showCourse';
 url13='http://localhost:8086/api/pdf/files';
-
+urlpyth1='http://localhost:5203/trainner'
   constructor(private http :HttpClient ) { }
   options = { withCredentials: true };
 
@@ -155,6 +155,9 @@ addpdf(reponse :any,id_qs_qcm:any ){
 addimage() {
   
   return this.http.get(this.urlrec);
+}
+trainner(){
+  return this.http.get(this.urlpyth1);
 }
 addfile(){
   const httpOptions = {

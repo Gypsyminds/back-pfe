@@ -44,12 +44,13 @@
  <body>
     
 <div *ngIf="affdescription">
-
+ 
     <header>
 
         <img class="img-fluid"  src="assets/assetss/img/course-details.jpg " class="d-block w-100 " height="400" width="1600" >
 
     </header>
+    
     <tr *ngIf="cours">
     <div class="container">
       
@@ -60,6 +61,8 @@
             <source [src]="cours.lien_youtube" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+    
+
          
 <div class="methode">
     <h2 class="course-title text-black"><u>Méthode :</u></h2>
@@ -137,7 +140,7 @@
                 <hr>
               <br><br>
               
-                <button (click)="loadPdf(cours.filepdf)" class="btn btn-main btn-block">Voir le cour </button>
+                <button (click)="onclick()" class="btn btn-main btn-block">Voir le cour </button>
           
             </div>
            
@@ -153,8 +156,22 @@
 
 </body>
 </div>
-<div  *ngIf ="affforminscri">
+<div  *ngIf ="affforminscri" class="col-md-80">
+
+  
+    
+        <form class="form-container">
+            <br><br> <br><br> <br><br>
+        <label class="label" for="name">Nom :</label>
+        <input class="input-field" type="text" id="name" name="name" >
+      <br>
+        <label class="label" for="email">Email :</label>
+        <input class="input-field" type="email" id="email" name="email" >
+        <label class="label" for="email">Email :</label>
+<br>
+        <input class="input-field" type="email" id="email" name="email" ><br>
+        <button class="btn" (click)="onclick()">Soumettre</button>
+      </form>
+    </div>
+
    
-
-</div>
-

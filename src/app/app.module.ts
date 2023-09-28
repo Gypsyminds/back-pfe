@@ -23,6 +23,7 @@ import { DetailCourComponent } from './detail-cour/detail-cour.component';
 import { PassageComponent } from './passage/passage.component';
 import { CoursesComponent } from './courses/courses.component';
 import { FormGroup, FormControl } from '@angular/forms';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { FormGroup, FormControl } from '@angular/forms';
     DetailCourComponent,
     PassageComponent,
     CoursesComponent,
+    
     
   ],
   imports: [

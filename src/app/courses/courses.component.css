@@ -315,3 +315,46 @@ label {
 .input{
 	width: 70%;
 }
+/* Style pour les champs de texte */
+.input-field {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #2e82b9;
+	border-radius: 4px;
+  }
+  
+  /* Style pour les boutons */
+  .btn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+  }
+  
+  .btn:hover {
+	background-color: #45a049;
+  }
+  
+  /* Style pour les étiquettes */
+  .label {
+	font-weight: bold;
+  }
+  
+  /* Style pour le formulaire */
+  .form-container {
+	width: 900px;
+	margin: 0 auto;
+	height: 600px;
+	text-align: center;
+  }
+  
+  /* Style pour les messages d'erreur */
+  .error-message {
+	color: #FF0000;
+	font-size: 14px;
+	margin-top: -10px;
+	margin-bottom: 10px;
+  }

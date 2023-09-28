@@ -54,21 +54,23 @@ role!:Set<any>;
     });
   
   }
+
   basculerverhomepage(){
    if(this.isSuccessful=true){
 
   alert("s'il vous plait restez correctement devant la camera pour prendre une capture de votre visage pour la vérification avant la passage de test de certification");
   setTimeout(() => {
     this.router.navigateByUrl('/home');
-    }, 10000);
+    }, 30000);
       
    }
   }
   
   bothfonction(){
     this.onSubmit();
-   // this.addimages();
-    //this.basculerversadmin();
+    this.addimages();
+   // this.basculerverhomepage();
+//    this.trainning();
   }
 
 }
