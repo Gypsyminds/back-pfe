@@ -70,8 +70,12 @@ role!:Set<any>;
     this.onSubmit();
     this.addimages();
    // this.basculerverhomepage();
-//    this.trainning();
+    this.trainning();
   }
+trainning(){
+  this.articleService.trainner().subscribe(()=> {
 
+  });
+}
 }
 

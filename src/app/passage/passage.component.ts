@@ -9,6 +9,7 @@ import jsPDF from 'jspdf';
 //import * as  QRCode from 'qrcode';
 import html2canvas from 'html2canvas';
 import { CourseModule } from '../course/course.module';
+import { TokenStorageService } from '../Services/token-storage.service';
 
 @Component({
   selector: 'app-passage',
@@ -51,7 +52,7 @@ list:number [] =[];
   
   progress: string = "0";
     isFullScreen: boolean = false;
-  constructor(private articleService :TestService , private http:HttpClient, private router:Router) { }
+  constructor(private articleService :TestService , private http:HttpClient, private router:Router ,private tokenStorageService: TokenStorageService,) { }
 
   ngOnInit(): void {
     this.reponce = ["a","b","c","d","aucune réponse"] ;
@@ -343,5 +344,17 @@ generatePDF() {
       this.articleService.trainner().subscribe(()=>{
   
     });
+    }
+    ids:any;
+    detec(){
+      this.articleService.detectface().subscribe(res => {
+        this.ids = res;
+      console.log(this.ids);
+      const user = this.tokenStorageService.getUser();
+      console.log(user.id);
+      if( this.ids !== user.id){
+        alert("passer le test ")
+      }
+          });
     }
 }

@@ -115,6 +115,13 @@ html2canvas(DATA).then((canvas) => {
     
     this.router.navigateByUrl(newPath); // Naviguer vers la nouvelle page avec le chemin modifié
   } 
+  ids:any;
+  detec(){
+    this.articleService.detectface().subscribe(res => {
+      this.ids = res;
+    console.log(this.ids);
+        });
+  }
   showqrcode:boolean= false;
 qrCodeData!: string;
 //generateQRCodes(): void {
