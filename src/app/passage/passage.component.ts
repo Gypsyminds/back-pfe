@@ -30,7 +30,7 @@ export class PassageComponent implements OnInit {
   isChecked3 = false;
   isChecked4 = false;
   temps:number  =0 ;
-list:number [] =[];
+  list:number [] =[];
   listtest:any ;
   reponce!: String[];
   width!:any [];
@@ -52,12 +52,20 @@ list:number [] =[];
   
   progress: string = "0";
     isFullScreen: boolean = false;
-  constructor(private articleService :TestService , private http:HttpClient, private router:Router ,private tokenStorageService: TokenStorageService,) { }
+    videoElement!: HTMLVideoElement;
+    canvasElement!: HTMLCanvasElement;
+    ctx!: CanvasRenderingContext2D;
+
+  constructor(private articleService :TestService , private http:HttpClient, private router:Router ,private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.reponce = ["a","b","c","d","aucune réponse"] ;
   //  document.addEventListener("keydown", this.fermerSiEchap);
   this.width=["25%","50%","75%","100%"];
+  //this.initializeAudio();
+  //this.detect30s();
+ 
+
   }
   openFullscreen() {
 
@@ -89,9 +97,11 @@ list:number [] =[];
   });
   console.log(this.listcour)
  }
-  listcour:any;
-  getAllQcms() {
-    this.articleService.getAllQcms().subscribe(listQcms => {
+  listcour:any;cour!:CourseModule;
+   tests =this.articleService.test;
+   images=this.articleService.image;
+  getAllQcms(id:any) {
+    this.articleService.getAllQcms(this.articleService.sharedValue).subscribe(listQcms => {
       
    
     setInterval(() => {
@@ -165,19 +175,21 @@ list:number [] =[];
  
   
    }
+  // cour!:CourseModule;
    executeBothFunctions() {
-    this.getAllQcms();
+    this.getAllQcms(this.articleService.sharedValue);
     this.openFullscreen();
     this.onClick();
     this.hideText();
-    this.trainning();
+   // this.detect30s();
+   //  this.trainning();
    // this.getAllcours();
    // this.getstart();
   
     // this.onEscapeKey();
     }
-    showButton = true;
-  showText: boolean = true;
+ showButton = true;
+ showText: boolean = true;
  showresultat = true ;
  showresultat2 = false ;
  hideresult(){
@@ -283,8 +295,10 @@ quitterletest(){
    this.getscore();
    this.temps= 30-this.counter;
  this.list.push(this.temps);
+ this.femercam();
+ //this.generatePDF();
   // this.onButtonClicked();
-  // this.score;
+  //this.score;
  //   this.router.navigateByUrl('/home');
  // this.generateQRCodes(this.url);
   }
@@ -345,16 +359,65 @@ generatePDF() {
   
     });
     }
-    ids:any;
-    detec(){
-      this.articleService.detectface().subscribe(res => {
-        this.ids = res;
-      console.log(this.ids);
-      const user = this.tokenStorageService.getUser();
-      console.log(user.id);
-      if( this.ids !== user.id){
-        alert("passer le test ")
-      }
-          });
+    
+    affichervideo(){
+      this.videoElement = document.getElementById('videoElement') as HTMLVideoElement;
+      this.canvasElement = document.getElementById('canvasElement') as HTMLCanvasElement;
+     // this.ctx = this.canvasElement.getContext('2d');
+  
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then((stream) => {
+          this.videoElement.srcObject = stream;
+          this.videoElement.play();
+        })
+        .catch((err) => {
+          console.error('Error accessing camera:', err);
+        });
+  
+      //this.detec();
     }
+    private audioContext!: AudioContext;
+    private analyserNode!: AnalyserNode;
+    private microphoneStream!: MediaStream;
+  async initializeAudio() {
+    try {
+      this.audioContext = new AudioContext();
+      this.analyserNode = this.audioContext.createAnalyser();
+
+      this.microphoneStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const microphoneSource = this.audioContext.createMediaStreamSource(this.microphoneStream);
+
+      microphoneSource.connect(this.analyserNode);
+      this.analyserNode.connect(this.audioContext.destination);
+
+      this.analyserNode.fftSize = 256;
+      const bufferLength = this.analyserNode.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+
+      const detectNoise = () => {
+        this.analyserNode.getByteFrequencyData(dataArray);
+        const average = dataArray.reduce((acc, val) => acc + val, 0) / bufferLength;
+        if (average > 100) { // Vous pouvez ajuster ce seuil selon vos besoins
+          console.log('Du bruit a été détecté !');
+        }
+        requestAnimationFrame(detectNoise);
+      };
+
+      detectNoise();
+    } catch (error) {
+      console.error('Erreur lors de l\'initialisation de l\'audio :', error);
+    }
+  }
+  detect30s(){
+    this.articleService.detec30s().subscribe(()=>{
+
+    });
+  }
+  femercam(){
+    this.articleService.fermercamera().subscribe(()=>{
+
+    });
+  }
+  
 }

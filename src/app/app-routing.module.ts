@@ -13,13 +13,15 @@ import { PassageTestComponent } from './passage-test/passage-test.component';
 import { DetailCourComponent } from './detail-cour/detail-cour.component';
 import { PassageComponent } from './passage/passage.component';
 import { UserdashComponent } from './userdash/userdash.component';
+import { RefacialeComponent } from './refaciale/refaciale.component';
+import { CertificatesComponent } from './certificates/certificates.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: BoardAdminComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
@@ -29,7 +31,8 @@ const routes: Routes = [
  // { path:'passagedetests',component:PassageTestComponent},
   {path:'passage',component:PassageComponent},
   { path:'detail-cour',component:DetailCourComponent},
-
+{path:'refaice',component:RefacialeComponent},
+{path:'pp',component:CertificatesComponent}
 ];
 
 @NgModule({

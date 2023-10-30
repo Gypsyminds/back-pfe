@@ -1,27 +1,26 @@
 
  <div id="code-container">
-   
+ 
 <tr *ngFor='let cour of listcour'>
-    
+ 
             <div class="row g-3 justify-content-left" *ngIf="desaffcour">
                 <div class="col-lg-8 col-md-8 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="assets/img/course-1.jpg">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <button (click)="getCourbyId(cour.id_course)"  class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px; background-color: rgb(0, 217, 255);">Read More</button>
-                                <button type="button" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0; background-color: rgb(0, 217, 255);" ><i class="fa fa-plus"></i> Passer le Test </button>
+                                <button (click)="getCourbyId(cour.id_course)"  class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px; background-color: rgb(0, 217, 255);">Détails</button>
+                                <button type="button" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0; background-color: rgb(0, 217, 255);" ><i class="fa fa-plus"></i> inscrire </button>
                             </div>
                         </div>
                         <div class="text-center p-4 pb-0">
                            
                             <h3 class="mb-0">   {{cour.prix}} DT </h3>
                             <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
+                                <i class="star-icon">★</i>
+                                <i class="star-icon">★</i>
+                                <i class="star-icon">★</i>
+                                <i class="star-icon">★</i>
       
                             </div>
                            <h5 class="mb-4">{{cour.courstitel}}</h5>
@@ -36,10 +35,10 @@
                     </div>
                 </div>
             </div>            <br><br><br>
-  
-            
+ 
+     
 </tr>
-       
+          
           
  <body>
     
@@ -56,14 +55,14 @@
       
         <div class="texte" class="col-lg-8">
             <h2><u>Description :</u></h2>
-         <h3> {{cours.description}}  </h3>
-         <video controls width="640" height="360">
+         <h3> Bienvenue dans ce cours d'introduction à la programmation en Java ! Java est l'un des langages de programmation les plus populaires et polyvalents au monde. Il est utilisé dans une multitude d'applications, de la création d'applications mobiles à la construction de systèmes d'entreprise sophistiqués.</h3>
+        <!-- <video controls width="640" height="360">
             <source [src]="cours.lien_youtube" type="video/mp4">
             Your browser does not support the video tag.
-          </video>
-    
+         </video>-->
+       
+         <iframe width="560" height="315" [src]="getsafurl(cours.lien_youtube)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-         
 <div class="methode">
     <h2 class="course-title text-black"><u>Méthode :</u></h2>
     <ul>
@@ -104,7 +103,7 @@
                     </li>
                     <li>
                       
-                              <h4> Instructeur :Hatem dagbouj</h4><br>
+                              <h4> Instructeur :Ahmed hamed</h4><br>
                         
                     
                     </li>
@@ -140,7 +139,7 @@
                 <hr>
               <br><br>
               
-                <button (click)="onclick()" class="btn btn-main btn-block">Voir le cour </button>
+                <button (click)="onclick()" class="btn btn-main btn-block">Inscription </button>
           
             </div>
            
@@ -157,20 +156,33 @@
 </body>
 </div>
 <div  *ngIf ="affforminscri" class="col-md-80">
+<header>
 
+<img class="img-fluid"  src="assets/assetss/img/headerinscrit.png " class="d-block w-100 " height="300" width="600" >
+
+</header>
+<div style="text-align: center;">
   
-    
-        <form class="form-container">
-            <br><br> <br><br> <br><br>
-        <label class="label" for="name">Nom :</label>
-        <input class="input-field" type="text" id="name" name="name" >
+  <h1>Inscription</h1>  
+<h2>Pour recevoir le programme détaillé par mail, remplissez ce formulaire attentivement . </h2>
+</div>
+
+    <form class="form-container">
+            <br><br>
+        <label style="text-align: left;">Nom Et Prénom :</label>
+        <input class="input-field" type="text" id="name" name="name" [(ngModel)]="courss.nom" placeholder="Entrez votre Nom&Prénom" >
       <br>
-        <label class="label" for="email">Email :</label>
-        <input class="input-field" type="email" id="email" name="email" >
-        <label class="label" for="email">Email :</label>
-<br>
-        <input class="input-field" type="email" id="email" name="email" ><br>
-        <button class="btn" (click)="onclick()">Soumettre</button>
+        <label style="text-align: left;">Email :</label>
+        <input  class="input-field" [formControl]="emailFormControl" [(ngModel)]="courss.email" placeholder="Entrez votre e-mail" />
+        <div *ngIf="emailFormControl.invalid && (emailFormControl.dirty || emailFormControl.touched)">
+          <div *ngIf="emailFormControl.errors">L'adresse e-mail n'est pas valide.</div>
+        </div>
+        <label style="text-align: left;">Téléphone :</label>   
+        <input  ng2TelInput  class="input-field" [(ngModel)]="courss.phone" placeholder="Entrez votre Numéro de téléphone"  [ng2TelInputOptions]="telInputOptions">
+        <ngx-intl-tel-input [(ngModel)]="courss.phone"></ngx-intl-tel-input>
+        
+        <button class="btn" style="background-color: rgb(245, 157, 94);" (click)="addCour(courss,cours.id_course,id)">Inscription</button>
+
       </form>
     </div>
 

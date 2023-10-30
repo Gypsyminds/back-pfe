@@ -10,4 +10,5 @@ export class CourseModule {
   langue : any ; 
   lien_youtube :any;
   filepdf :any ;
+  imagecour :any;
  }

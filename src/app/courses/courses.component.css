@@ -358,3 +358,9 @@ label {
 	margin-top: -10px;
 	margin-bottom: 10px;
   }
+  .star-icon {
+	font-family: 'Font Awesome'; /* Si vous utilisez Font Awesome */
+	font-size: 24px; /* Taille de la police de l'icône */
+	color: #007BFF; /* Couleur de l'icône, remplacez par la couleur de votre choix */
+	/* Autres styles CSS au besoin */
+  }

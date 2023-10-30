@@ -181,57 +181,57 @@ qrCodeData!: string;
   
 
  
-  getAllQcms() {
-    this.articleService.getAllQcms().subscribe(listQcms => {
+  //getAllQcms() {
+    ///this.articleService.getAllQcms().subscribe(listQcms => {
       
    
-    setInterval(() => {
+   // setInterval(() => {
     
-        this.counter--;
+     //   this.counter--;
         
-        if (this.counter == 0){
-          this.counter = 30;
-          this.testrep1();
-          this.testrep2();
-          this.testrep3();
-          this.testrep4();        
-          this.currentEntity = this.listQcms[this.currentIndex];
-          this.currentIndex++;
-             this.onButtonClick();
-            this.getProgressPercent();
+      //  if (this.counter == 0){
+        //  this.counter = 30;
+          //this.testrep1();
+          //this.testrep2();
+          //this.testrep3();
+          //this.testrep4();        
+          //this.currentEntity = this.listQcms[this.currentIndex];
+          //this.currentIndex++;
+            // this.onButtonClick();
+            //this.getProgressPercent();
          //   this.generatePDF()
-           }
+          // }
           
-           if((this.counter ==1) && (this.currentIndex == this.listQcms.length-1)){
-            this.showresultat2 =true;
+           //if((this.counter ==1) && (this.currentIndex == this.listQcms.length-1)){
+            //this.showresultat2 =true;
           
            // this.router.navigateByUrl('/home');
          //  this.generatePDF();
-           }
+          // }
            
-   }, 1000);
+   //}, 1000);
    
-      for (let i = 0; i < listQcms.length; i++) {
+     // for (let i = 0; i < listQcms.length; i++) {
  
       
-     if  (this.currentIndex <= this.listQcms.length){
+     //if  (this.currentIndex <= this.listQcms.length){
      
-   setTimeout(() => {
+   //setTimeout(() => {
   
-  this.listQcms = listQcms ;
-  this.currentEntity = listQcms[i];
+  //this.listQcms = listQcms ;
+  //this.currentEntity = listQcms[i];
  
-  this.currentEntity = this.listQcms[this.currentIndex];
-  this.questions = this.listQcms[this.currentIndex].question;
- this.currentIndex++;
+  //this.currentEntity = this.listQcms[this.currentIndex];
+  //this.questions = this.listQcms[this.currentIndex].question;
+ //this.currentIndex++;
  
-  this.index++;
-  if( (!this.isChecked && !this.isChecked2 && !this.isChecked3 && !this.isChecked4 )) {
+  //this.index++;
+  //if( (!this.isChecked && !this.isChecked2 && !this.isChecked3 && !this.isChecked4 )) {
     // alert("Aucune case à cocher n'a été cochée!");
-  this.addReponce(this.reponce[4],this.listQcms[this.currentIndex-1].id_qs_qcm);
+  //this.addReponce(this.reponce[4],this.listQcms[this.currentIndex-1].id_qs_qcm);
     // this.currentEntity = this.listQcms[this.currentIndex];
   
-    }
+   // }
 
   
   
@@ -239,14 +239,14 @@ qrCodeData!: string;
     
 
    
- }, i * 30000);
+ //}, i * 30000);
   
-     }
+   //  }
 
-}
+//}
 
-});
-  }
+//});
+ // }
 
 currentQuestion: number = 0;
 questionList: any = [];
@@ -337,7 +337,7 @@ getProgressPercent() {
 
  
   executeBothFunctions() {
-  this.getAllQcms();
+ // this.getAllQcms();
   this.openFullscreen();
   this.onClick();
   this.hideText();

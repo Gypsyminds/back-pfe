@@ -10,11 +10,14 @@ import { FileModule } from '../Models/file.module';
 
 @Injectable({
   providedIn: 'root'
+  
 })
 
 export class TestService {
- 
-  Url ='http://localhost:8086/qcm/qcm/1';
+  sharedValue :any;
+  test: any;
+  image: any;
+  Url ='http://localhost:8086/qcm/qcm';
   Url1 ='http://localhost:8086/showqcm';
   Url2='http://localhost:8086/qcm/AddFile';
   url3 ='http://localhost:8086/showallcertif/1';
@@ -32,15 +35,51 @@ url11='http://localhost:8086/api/pdf/upload';
 url12='http://localhost:8086/cour/showCourse';
 url13='http://localhost:8086/api/pdf/files';
 urlpyth1='http://localhost:5203/trainner';
-urldetec='http://127.0.0.1:5000/detect_faces';
+urldetec='http://127.0.0.1:5202/detect_faces';
+url30s='http://127.0.0.1:5200/mafonctions';
+urlcam='http://127.0.0.1:5200/api/close-camera';
+urlinscrit='http://localhost:8086/qcm/inscrit';
+urlmail='http://localhost:8086/qcm/sendPdfByEmail';
+urlcouradmin='http://localhost:8086/cour/getByIds';
   constructor(private http :HttpClient ) { }
   options = { withCredentials: true };
 
+addinscrit(courins: any,id_cour:any,id_user:any){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+    })
+  }
+  return this.http.post(`${this.urlinscrit}/${id_cour}/${id_user}`,courins,httpOptions);
+
+}
+couradmin(id_user:any){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+    })
+  }
+  return this.http.get(`${this.urlcouradmin}/${id_user}`,httpOptions);
+}
+addmailinscrit(){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+    })
+  }
+  return this.http.get(`${this.urlinscrit}`,httpOptions);
+}
 addProduct( condidat:Condidat): Observable<any> {
   return this.http.post(this.Urlcaappython,condidat);
 }
+fermercamera(){
+   return this.http.get(this.urlcam);
+}
 detectface(){
  return  this.http.get(this.urldetec);
+}
+detec30s(){
+  return this.http.get(this.url30s);
 }
 getfiles(){
   const httpOptions = {
@@ -52,13 +91,13 @@ getfiles(){
   }
   return this.http.get<FileModule>(`${this.url13}`,httpOptions);
 }
- getAllQcms() {
+ getAllQcms(id :any) {
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json;charset=UTF-8',
     })
   }
-   return this.http.get<Test[]>(`${this.Url}`,httpOptions);
+   return this.http.get<Test[]>(`${this.Url}/${id}`,httpOptions);
    
  }
  getcour(id :any){
@@ -100,7 +139,6 @@ getfiles(){
     })
     
   }
-  { responseType: 'blob' }
   return this.http.get<CourseModule[]>(`${this.url}`,httpOptions);
  }
 gettest() {

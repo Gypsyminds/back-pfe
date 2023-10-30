@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TestService } from '../Services/test.service';
+import { Router } from '@angular/router';
+import { TokenStorageService } from '../Services/token-storage.service';
 
 @Component({
   selector: 'app-refaciale',
@@ -6,11 +9,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./refaciale.component.css']
 })
 export class RefacialeComponent implements OnInit{
-  constructor(){}
-  
+  constructor(private articleService :TestService,private router:Router ,private tokenStorageService: TokenStorageService ){}
+  ids:any;
  cv: any;
+ affloading:boolean=false;
+ desac:boolean=true;
+ affvalidation:boolean=false;
   ngOnInit(): void {
-  this.startVideo();
+  //this.startVideo();
+//  while(this.ids==0){
+ //   this.detect();
+  //}
+  setTimeout(() => {
+    this.desac = false;
+    this.affloading = true;
+    this.detect();
+  }, 9000); 
+//this.detect30s();
   }
  
   startVideo() {
@@ -53,4 +68,29 @@ export class RefacialeComponent implements OnInit{
 
     processFrame();
   }
+detect(){
+  this.articleService.detectface().subscribe(res => {
+    this.ids = res;
+ console.log(this.ids);
+const user = this.tokenStorageService.getUser();
+console.log(user.id);
+ if( this.ids == user.id){
+
+   this.affvalidation =true;
+   this.affloading = false;
+ }else{
+  this.detect();
+ }
+
+      });
+}
+routerpassage(){
+  this.router.navigateByUrl('/passage');
+
+}
+detect30s(){
+  this.articleService.detec30s().subscribe(()=>{
+
+  });
+}
 }

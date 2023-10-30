@@ -5,6 +5,7 @@ import { TestService } from '../Services/test.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
+import { TokenStorageService } from '../Services/token-storage.service';
 @Component({
   selector: 'app-board-user',
   templateUrl: './board-user.component.html',
@@ -16,11 +17,18 @@ export class BoardUserComponent implements OnInit {
   affcours:boolean= false;
 
  cour !:CourseModule ;
-  imgfile: any;
-  constructor(private userService: UserService,private test:TestService,private http: HttpClient,private router:Router) { }
+  imgfile: any; username?: string;
+  id?:any;
+  mail?:any; 
+  private roles: string[] = [];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  constructor(private test:TestService,private http: HttpClient,private router:Router,private tokenStorageService: TokenStorageService,private userService: UserService) { 
+  }
 
   ngOnInit(): void {
-    this.userService.getUserBoard().subscribe(
+    this.userService.getAdminBoard().subscribe(
       data => {
         this.content = data;
       },
@@ -28,6 +36,20 @@ export class BoardUserComponent implements OnInit {
         this.content = JSON.parse(err.error).message;
       }
     );
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+
+      this.username = user.username;
+      this.id = user.id ;
+      this.mail = user.email;
+      console.log(user)
+    }
    this.affnubcours();
    this.affuser();this.affprof();this.affcertif();this.afftests();
    this.cour={
@@ -41,12 +63,17 @@ export class BoardUserComponent implements OnInit {
     langue : null ,
     lien_youtube :null,
     filepdf :null ,
+    imagecour :null,
    };
+   this.getAllcours();this.getusers();
+
+   
   }
+  ajoutcour:boolean=false;
   ajoutercour(c :any){
     this.test.addcour(this.cour).subscribe(()=>{
-    this.affform = false;
-  
+   // this.affform = false;
+   // this.ajoutcour= true;
     });
   
    
@@ -63,9 +90,11 @@ export class BoardUserComponent implements OnInit {
   profs:any ;
   getprofs(){
     this.test.getAllprof().subscribe(res => {
-      this.profs = res;
+    this.profs = res;
     this.interprof = true;
-
+    this.ajoutcour=false; 
+    this.affcours=false
+    this.afuer=false;
     });
   }
   getAllcours(){
@@ -113,6 +142,9 @@ this.nbrtest = data ;
     }
     affichercours(){
       this.affcours =true;
+      this.ajoutcour= false;
+      this.afuer=false;
+      this.interprof = false;
     }
     bothaffiche(){
       this.affichercours();
@@ -127,7 +159,10 @@ this.nbrtest = data ;
     }
     iconcours:boolean=false;
     iconcour(){
-      this.iconcours=true; 
+      this.ajoutcour=true; 
+      this.affcours=false
+      this.afuer=false;
+      this.interprof = false;
     }
     interprof:boolean=false;
     affprofs(){
@@ -140,7 +175,9 @@ this.nbrtest = data ;
     afuer:boolean=false;
     afficheruser(){
     this.afuer=true;
-
+    this.affcours =false;
+    this.ajoutcour= false;
+    this.interprof = false;
     }
     bothex(){
       this.getusers();
@@ -148,6 +185,8 @@ this.nbrtest = data ;
     }
     exitusr(){
       this.afuer=false;
+      this.affcours=false;
+
     }
     affhome(){
       this.router.navigate(['/home']);
@@ -189,4 +228,6 @@ this.nbrtest = data ;
     
     
      }
+
+   
 }

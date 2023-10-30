@@ -1,1 +1,59 @@
-<script async src="/assets/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+<div *ngIf="desac">
+<header>
+    <h1 class=" text-black" style="text-align: center;" > </h1>
+    <img class="img-fluid" style=" padding-bottom: 40px;" src="assets/assetss/img/course-details.jpg " class="d-block w-100 " height="400" alt="..." >
+    <br> <br> <br>
+  </header>
+<div style="text-align: center;">
+  <h1> Merci de restez correctement devant la camera de votre pc  </h1><br>
+  <h2>  afin que nous puissions procéder à une vérification visuelle de votre identité.</h2>
+</div>
+</div>
+  <div class="wrapper" *ngIf="affloading">
+    <span style="--i: 1">
+      <span class="bubble"></span> 
+    </span>
+    <span style="--i: 2">
+      <span class="bubble"></span> 
+    </span>
+    <span style="--i: 3">
+      <span class="bubble"></span> 
+    </span>
+    <span style="--i: 4">
+      <span class="bubble"></span> 
+    </span>
+    <span style="--i: 5">
+      <span class="bubble"></span> 
+    </span>
+    <span style="--i: 6">
+      <span class="bubble"></span> 
+    </span>
+    <span style="--i: 7">
+      <span class="bubble"></span> 
+    </span>
+    <span style="--i: 8">
+      <span class="bubble"></span> 
+    </span>
+    <span style="--i: 9">
+      <span class="bubble"></span> 
+    </span>
+    <span style="--i: 10">
+      <span class="bubble"></span> 
+    </span>
+  </div>
+  <div style="text-align: center;" *ngIf="affvalidation">
+    <header>
+      <h1 class=" text-black" style="text-align: center;" > </h1>
+      <img class="img-fluid" style=" padding-bottom: 40px;" src="assets/assetss/img/course-details.jpg " class="d-block w-100 " height="400" alt="..." >
+    
+    </header>
+    <img src="assets/assetss/img/validation.jpg" style="background-color: white;"> 
+    <h1> Validation terminé </h1>
+    <h1> Vous pouvez accédez au test </h1>
+    <br>
+    <button (click)="routerpassage()"> Accéder au test </button>
+  </div>
+
+
+  
+  

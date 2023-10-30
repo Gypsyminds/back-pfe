@@ -1,6 +1,4 @@
 
-
-
 import { CommonModule } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -24,6 +22,9 @@ import { PassageComponent } from './passage/passage.component';
 import { CoursesComponent } from './courses/courses.component';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import { RefacialeComponent } from './refaciale/refaciale.component';
+import { Ng2TelInputModule } from 'ng2-tel-input';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,7 @@ import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
     DetailCourComponent,
     PassageComponent,
     CoursesComponent,
-    
+    RefacialeComponent
     
   ],
   imports: [
@@ -47,8 +48,8 @@ import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
     FormsModule,
     HttpClientModule,
     CommonModule,
-    
-   
+    ReactiveFormsModule,
+    Ng2TelInputModule,  
     
   
     

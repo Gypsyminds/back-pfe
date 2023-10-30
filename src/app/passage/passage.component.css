@@ -129,3 +129,332 @@
   .header{
     padding-bottom: 20px;
   }
+  @import url("https://fonts.googleapis.com/css?family=Julius+Sans+One");
+@import url("https://fonts.googleapis.com/css?family=Calligraffitti");
+
+.inset-border {
+  border: 2px inset #9cb8e1;
+}
+.double-border {
+  border: 2px double #a2d5d0;
+}
+
+body {
+  text-align: center;
+  background-color: #ffffff;
+  width: 40%;
+  height: 90%;
+}
+
+img {
+  margin-top: 0px;
+  width: 20%;
+  height: 100%;
+}
+
+.id {
+  font-family: "Julius Sans One", sans-serif;
+  margin: 10px;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-right: 10px;
+  color: #333333;
+}
+
+.certificate {
+  font-size: 110px;
+  color: #333333;
+  font-family: "Julius Sans One", sans-serif;
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+
+h4 {
+  font-family: "Julius Sans One", sans-serif;
+  width: 100%;
+  text-align: center;
+  font-size: 38px;
+  color: #333333;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #000;
+  line-height: 0.1em;
+  margin: 10px 0px 20px;
+}
+
+h2 span {
+  background: #fff;
+  padding: 0 10px;
+}
+
+.text {
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 20px;
+  color: #333333;
+  margin-top: 60px;
+  margin-bottom: 0px;
+}
+
+.name {
+  font-family: "Calligraffitti", cursive;
+  font-size: 80px;
+  color: #9cb8e1;
+  margin-top: 25px;
+  margin-bottom: 0px;
+}
+
+.description {
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 20px;
+  color: #333333;
+  margin-top: 3px;
+}
+
+.date {
+  margin-right: 10em;
+  display: inline-block;
+  margin-top: 25px;
+}
+
+.dateText {
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 20px;
+  color: #333333;
+}
+
+.signature {
+  margin-left: 10em;
+  display: inline-block;
+  margin-top: 25px;
+}
+
+.signatureText {
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 20px;
+  color: #333333;
+}
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.image-left {
+  max-width: 45%; /* Ajustez la largeur de l'image gauche selon vos besoins */
+}
+
+.image-right {
+  max-width: 45%; /* Ajustez la largeur de l'image droite selon vos besoins */
+}
+.text-align{
+  text-align: center;
+}
+.image-text-container {
+  display: flex;
+  align-items: center;
+}
+
+.image-left {
+  flex: 1;
+  text-align: center;
+}
+
+.image-right {
+  flex: 1;
+  text-align: center;
+}
+
+.text {
+  flex: 2;
+  text-align: center;
+}
+/* image-layout.component.css */
+.image-layout {
+  display: flex;
+  align-items: center;
+}
+
+.left-image {
+  flex: 1;
+  text-align: center;
+}
+
+.right-image {
+  flex: 1;
+  text-align: center;
+}
+
+.text {
+  flex: 1;
+  text-align: center;
+ 
+}
+
+.certification {
+  background-color: #fff;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  font-size: 24px;
+}
+
+h2 {
+  color: #333;
+  font-size: 20px;
+}
+
+h3 {
+  color: #666;
+  font-size: 16px;
+}
+
+p {
+  color: #444;
+  font-size: 14px;
+  margin: 5px 0;
+}
+@page{
+  size:A4 landscape;
+  margin:10mm;
+}
+
+.certif{
+  margin:0;
+  padding:0;
+  height:188mm;
+}
+
+.border-pattern{
+  position:absolute;
+  left:4mm;
+  top:-6mm;
+  height:200mm;
+  width:267mm;
+  border:1mm solid #1b8099;
+  /* http://www.heropatterns.com/ */
+  background-color: #d6d6e4;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h16v2h-6v6h6v8H8v-6H2v6H0V0zm4 4h2v2H4V4zm8 8h2v2h-2v-2zm-8 0h2v2H4v-2zm8-8h2v2h-2V4z' fill='%23991B1B' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.content{
+  position:absolute;
+  left:10mm;
+  top:10mm;
+  height:178mm;
+  width:245mm;
+  border:1mm solid  #1b8099;
+  background:white;
+}
+
+.inner-content{
+  margin:4mm;
+  padding:10mm;
+  height:148mm;
+  text-align:center;
+}
+
+h1{
+  text-transform:uppercase;
+  font-size:48pt;
+  margin-bottom:0;
+}
+
+h2{
+  font-size:24pt;
+  margin-top:0;
+  display:inline-block;
+}
+
+h2::after{
+  content:"";
+  display:block;
+ 
+}
+
+h3{
+  font-size:20pt;
+  margin-bottom:0;
+  margin-top:10mm;
+}
+
+p{
+  font-size:16pt;
+}
+
+.badge{
+  width:40mm;
+  height:40mm;
+  position:absolute;
+  right:10mm;
+  bottom:10mm;
+ }
+ .cert {
+  border: 15px solid #0072c6;
+  border-right: 15px solid #0894fb;
+  border-left: 15px solid #0894fb;
+  width: 700px;
+  font-family: arial;
+  color: #383737;
+}
+
+.crt_title {
+  margin-top: 30px;
+  font-family: "Satisfy", cursive;
+  font-size: 40px;
+  letter-spacing: 1px;
+  color: #0060a9;
+}
+.crt_logo img {
+  width: 130px;
+  height: auto;
+  margin: auto;
+  padding: 30px;
+}
+.colorGreen {
+  color: #27ae60;
+}
+.crt_user {
+  display: inline-block;
+  width: 80%;
+  padding: 5px 25px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-family: "Satisfy", cursive;
+  font-size: 40px;
+  border-bottom: 1px dashed #cecece;
+}
+
+.afterName {
+  font-weight: 100;
+  color: #383737;
+}
+.colorGrey {
+  color: grey;
+}
+.certSign {
+  width: 200px;
+}
+
+@media (max-width: 700px) {
+  .cert {
+    width: 100%;
+  }
+}
+.left, .right {
+  flex: 3;
+  text-align: center;
+}
+
+.center {
+  flex: 2;
+  text-align: center;
+}
+.containers {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

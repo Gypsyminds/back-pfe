@@ -1,5 +1,10 @@
+
+ 
+
+
+
 <header *ngIf="showText">
-  <h1 class=" text-black" style="text-align: center;" >Test Angular </h1>
+  <h1 class=" text-black" style="text-align: center;" >Test {{tests}} </h1>
   <img class="img-fluid" style=" padding-bottom: 40px;" src="assets/assetss/img/course-details.jpg " class="d-block w-100 " height="400" alt="..." >
   <br> <br> <br>
 </header>
@@ -14,15 +19,14 @@
        
         <br> <br> <br>
         
-        <h2 class="text-align:center text-black"> Les Règles:</h2>
+        <h1 class="text-align:center text-black"> Les Règles:</h1>
         <h2 class="text-black">
          
           • La durée de l'examen est 15 minutes <br><br>
           • L'examen contiendra 15 questions<br><br>
-          • Passer, vous devez obtenir au moins comme score de 80%<br><br>
+          • Passer, vous devez obtenir au moins comme score de 70%<br><br>
         </h2>
         <h1 style="font-family: cursive">Bonne Chance 😊</h1><br><br>
-        <button class="btn btn-info py-3 px-5 m-4 mx-auto" (click)="detec()"> detecttttttttt</button>
 
         <button  (click)="executeBothFunctions()" *ngIf="showButton"> Passer le test ➡️</button>
       </div>
@@ -46,10 +50,10 @@
           <div class="d-flex justify-content-between p-3">
          <div class="image">
     
-    <img src ="assets/img/angular.png" width="90" alt="logo">
+    <img [src]="images" width="90" alt="logo">
          </div>
          <div class="quiz-header">
-    <h4 style="font-family:cursive;"> Angular</h4>
+    <h4 style="font-family:cursive;"> {{tests}} </h4>
     <span styme="font-style:italic;"> Welcome</span>
          </div>
           </div>
@@ -124,13 +128,15 @@
   <div id="id-card">
     <div class="container" *ngIf="showresultat2">
   <div class="custom-border">
-    <img src ="assets/img/angular.png" width="40" alt="logo">
+  
+   <!-- <img [src]="images"  width="10" height="5" alt="Mon Logo"> temchy -->
     <div class="d-flex justify-content-around py-3"> 
-      <h4 style="font-family:cursive;" style="font-family: cursive;text-align:center"> 
-        Certification Angular <br> </h4></div>
+      <h5 style="font-family:cursive;" style="font-family: cursive;text-align:center"> 
+        Certification {{tests}} <br> </h5></div>
    
   </div><br>
-  <div *ngIf ="bewbew" class="row d-flex justify-content-between">
+  <!-- *ngIf ="bewbew" affichage de score -->
+  <div class="row d-flex justify-content-between">
     <div class="result text-left col-md-6 col-sm-12">
       <h1 style="font-family: cursive;text-align:center">  Score :{{score}} %    </h1> 
     </div>
@@ -138,7 +144,7 @@
     </div>
   <div class="custom-border">
     <div *ngFor="let response of listQcms; let i = index">     
-      <h4>  {{i+1}}   {{response.question}} </h4>
+      <h3>  {{i+1}}   {{response.question}} </h3>
        
          <h5 [class.text-vert-gras]="this.response.rep1.iscorrect === true">{{currentEntity.rep1.textrep1}} </h5>
          <h5 [class.text-vert-gras]="this.response.rep2.iscorrect === true">{{currentEntity.rep2.textrep2}} </h5>
@@ -153,36 +159,55 @@
         
   </div>  
 
-
- 
- 
-
- <!-- <canvas id="qrcode"></canvas> temchyy -->
-</div>
-<div *ngIf="showqrcode">
-
-
-  
-    <div class="certification">
-   <div class="title">
-    <div class="image-container">
-      <img src="assets/img/logo.png" width="40" class="logo">
-      
-      </div>
-      <h1>Certificate of Appreciation   </h1>
-      <h2>Angular </h2>
-  </div><br><br> <br> <br>
-  <div>
-      <h2> This Certificate is proudly presented to :</h2><h6><span class="name">John Doe</span></h6>
   
   </div>
-    </div>
  
 
+  <canvas id="qrcode"></canvas>
+</div>
+  <div *ngIf="showqrcode">
+<html>
+      
+<div class="certif">
+  <div class="border-pattern">
+      <div class="content">
+          <div class="inner-content">
+            <div class="containers">
+            
+            <div class="center">
+                  <h1>   certificat </h1>    <br>  <h2>d'excellence  </h2>
+            </div>
+                    <div class="right">
+                       <img src ="assets/img/africo-ding.png" class="right-image" width="30"/> 
+                    </div>
+                  </div>
+        
+
+              <h3>Ce certificat est fièrement présenté à</h3>
+              <p>Jane Doe</p>
+              <h3>Has Completed</h3>
+              <p>A completé</p>
+              <h3>Le <p>Feburary 5, 2021</p></h3>
+              
+              <div class="badge">
+             
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+  </html>  
+ 
     </div>
+ 
+    
+   
   
 
-   
+
+
+
   
 
 
