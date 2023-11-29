@@ -3,4 +3,5 @@ id_certif : any;
 certif_title :any;
 description :any;
 score :any;
+nomuser :any;
 }

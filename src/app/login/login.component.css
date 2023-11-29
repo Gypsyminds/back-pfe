@@ -4,7 +4,7 @@
 
 .input-with-icon i {
     text-align: center;
-    left: 10px; /* Ajustez la valeur selon vos besoins */
+    left: 8px; /* Ajustez la valeur selon vos besoins */
     top: 50%;
     transform: translateY(-50%);
 }
@@ -13,4 +13,7 @@
     justify-content: center; /* Centrer horizontalement */
     align-items: center; /* Centrer verticalement */
     height: 100vh; /* Utilise la hauteur de la vue */
+}
+.input{
+text-align: left;
 }

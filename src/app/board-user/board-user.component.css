@@ -181,7 +181,7 @@ main {
   border-radius: 5px;
   border-color: #88085d;
   box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;
-  
+  background-color: 38e1b0;
 }
 
 .card_inner {
@@ -201,7 +201,7 @@ main {
   margin-right: 5px;
   margin-left: 30px;
   border-color: #88085d;
-
+  width:2700px;
 }
 
 .charts__left {
@@ -502,4 +502,324 @@ main {
   text-decoration: none;
   color: white;
   display: block;
+}
+.clock {
+  width: 200px;
+  height: 200px;
+  border: 10px solid black;
+  border-radius: 50%;
+  position: relative;
+}
+
+.hour, .minute, .second {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background: black;
+  top: 50%;
+  transform-origin: 100%;
+  transform: translateY(-50%);
+}
+
+.hour {
+  height: 6px;
+  z-index: 3;
+}
+
+.minute {
+  height: 3px;
+  z-index: 2;
+}
+
+.second {
+  background: red;
+  height: 1px;
+  z-index: 1;
+}
+
+.certif{
+  margin:0;
+  padding:0;
+  height:168mm;
+}
+
+.border-pattern{
+  position:absolute;
+  left:4mm;
+  top:6mm;
+  height:200mm;
+  width:267mm;
+  border:1mm solid #1b8099;
+  /* http://www.heropatterns.com/ */
+  background-color: #d6d6e4;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h16v2h-6v6h6v8H8v-6H2v6H0V0zm4 4h2v2H4V4zm8 8h2v2h-2v-2zm-8 0h2v2H4v-2zm8-8h2v2h-2V4z' fill='%23991B1B' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.content{
+  position:absolute;
+  left:10mm;
+  top:10mm;
+  height:178mm;
+  width:245mm;
+  border:1mm solid  #1b8099;
+  background:white;
+}
+
+.inner-content{
+  margin:4mm;
+  padding:10mm;
+  height:148mm;
+  text-align:center;
+}
+
+h1{
+  text-transform:uppercase;
+  font-size:48pt;
+  margin-bottom:0;
+}
+
+h2{
+  font-size:24pt;
+  margin-top:0;
+  display:inline-block;
+}
+
+h2::after{
+  content:"";
+  display:block;
+ 
+}
+
+h3{
+  font-size:20pt;
+  margin-bottom:0;
+  margin-top:10mm;
+}
+
+p{
+  font-size:16pt;
+}
+
+.badge{
+  width:40mm;
+  height:40mm;
+  position:absolute;
+  right:10mm;
+  bottom:10mm;
+ }
+ .cert {
+  border: 15px solid #0072c6;
+  border-right: 15px solid #0894fb;
+  border-left: 15px solid #0894fb;
+  width: 700px;
+  font-family: arial;
+  color: #383737;
+}
+
+.crt_title {
+  margin-top: 30px;
+  font-family: "Satisfy", cursive;
+  font-size: 40px;
+  letter-spacing: 1px;
+  color: #0060a9;
+}
+.crt_logo img {
+  width: 130px;
+  height: auto;
+  margin: auto;
+  padding: 30px;
+}
+.colorGreen {
+  color: #27ae60;
+}
+.crt_user {
+  display: inline-block;
+  width: 80%;
+  padding: 5px 25px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-family: "Satisfy", cursive;
+  font-size: 40px;
+  border-bottom: 1px dashed #cecece;
+}
+
+.afterName {
+  font-weight: 100;
+  color: #383737;
+}
+.colorGrey {
+  color: grey;
+}
+.certSign {
+  width: 200px;
+}
+
+@media (max-width: 700px) {
+  .cert {
+    width: 100%;
+  }
+}
+.left, .right {
+  flex: 3;
+  text-align: center;
+}
+
+.center {
+  flex: 2;
+  text-align: center;
+}
+.containers {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.image-container{
+  height:180mm;
+  width:420mm;
+}
+.border-pattern{
+  position:absolute;
+  left:4mm;
+  top:6mm;
+  height:180mm;
+  width:420mm;
+  border:1mm solid #1b8099;
+  /* http://www.heropatterns.com/ */
+  background-color: #d6d6e4;
+}
+
+.content{
+  position:absolute;
+  left:2mm;
+  top:2mm;
+  height:193mm;
+  width:410mm;
+  border:0.5mm solid  #1b8099;
+  background:white;
+}
+
+.inner-content{
+  margin:1mm;
+  padding:1mm;
+  height:140mm;
+  text-align:center;
+}
+
+h1{
+  text-transform:uppercase;
+  font-size:48pt;
+  margin-bottom:0;
+}
+
+h2{
+  font-size:24pt;
+  margin-top:0;
+  display:inline-block;
+}
+
+h2::after{
+  content:"";
+  display:block;
+ 
+}
+
+h3{
+  font-size:20pt;
+  margin-bottom:0;
+  margin-top:10mm;
+}
+
+p{
+  font-size:16pt;
+}
+
+.badge{
+  width:40mm;
+  height:40mm;
+  position:absolute;
+  right:10mm;
+  bottom:10mm;
+ }
+ .cert {
+  border: 15px solid #0072c6;
+  border-right: 15px solid #0894fb;
+  border-left: 15px solid #0894fb;
+  width: 700px;
+  font-family: arial;
+  color: #383737;
+}
+
+.crt_title {
+  margin-top: 30px;
+  font-family: "Satisfy", cursive;
+  font-size: 40px;
+  letter-spacing: 1px;
+  color: #0060a9;
+}
+.crt_logo img {
+  width: 130px;
+  height: auto;
+  margin: auto;
+  padding: 30px;
+}
+.colorGreen {
+  color: #27ae60;
+}
+.crt_user {
+  display: inline-block;
+  width: 80%;
+  padding: 5px 25px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-family: "Satisfy", cursive;
+  font-size: 40px;
+  border-bottom: 1px dashed #cecece;
+}
+
+.afterName {
+  font-weight: 100;
+  color: #383737;
+}
+.colorGrey {
+  color: grey;
+}
+.certSign {
+  width: 200px;
+}
+
+@media (max-width: 700px) {
+  .cert {
+    width: 100%;
+  }
+}
+.left, .right {
+  flex: 3;
+  text-align: center;
+}
+
+.center {
+  flex: 2;
+  text-align: center;
+}
+.containers {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+#img2 {
+  width: 60%;
+  height: 7%;
+  margin-right: 40px;
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
 }

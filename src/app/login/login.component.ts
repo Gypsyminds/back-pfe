@@ -50,13 +50,13 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
-  }
+   // this.basculerversadmin();
 
+  }
   reloadPage(): void {
     window.location.reload();
   }
-  
-  
+ 
   basculerversadmin(){
     if(this.form.email='laajili.khouloud@esprit.tn'){
       this.router.navigateByUrl('/user');

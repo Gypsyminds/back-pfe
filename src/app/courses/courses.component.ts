@@ -122,7 +122,7 @@ this.desaffcour = false;
     
   loadPdf(id:any) {
    // const pdfId = 2; // Remplacez par l'ID du PDF que vous souhaitez afficher
-    this.http.get('http://localhost:8086/api/pdf/' + id, { responseType: 'arraybuffer' })
+    this.http.get('http://localhost:8086/api/pdf/img/' + id, { responseType: 'arraybuffer' })
       .subscribe((data: ArrayBuffer) => {
         const blob = new Blob([data], { type: 'application/pdf' });
         const url = window.URL.createObjectURL(blob);
@@ -153,4 +153,5 @@ emailFormControl = new FormControl('', [
   Validators.required,
   Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
 ]);
+
 }

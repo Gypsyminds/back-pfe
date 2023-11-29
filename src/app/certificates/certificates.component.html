@@ -1,233 +1,117 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
-    <div class="row">
-        <div class="col-lg-3 col-md-4">
-            <div class="text-center card-box">
-                <div class="member-card">
-                    <div class="thumb-xl member-thumb m-b-10 center-block">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-circle img-thumbnail" alt="profile-image">
-                    </div>
+<!--<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Convert HTML To Image</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js">
+    </script>
+  <style media="screen">
+    #htmlContent{
+      border-color: rgb(8, 8, 8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 300px;
+      height: 200px;
+    }
+  </style></head>
+<body onload="autoClick();">
 
-                    <div class="">
-                        <h4 class="m-b-5">John J. Doe</h4>
-                        <p class="text-muted">@johndoe</p>
-                    </div>
-                    
-                    <button type="button" class="btn btn-success btn-sm w-sm waves-effect m-t-10 waves-light">Follow</button>
-                    <button type="button" class="btn btn-danger btn-sm w-sm waves-effect m-t-10 waves-light">Message</button>
-                    
-                    <div class="text-left m-t-40">
-                        <p class="text-muted font-13"><strong>Full Name :</strong> <span class="m-l-15">Johnathan Deo</span></p>
-                        <p class="text-muted font-13"><strong>Mobile :</strong><span class="m-l-15">(123) 123 1234</span></p>
-                        <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">johndoe@bootdey.com</span></p>
-                        <p class="text-muted font-13"><strong>Location :</strong> <span class="m-l-15">USA</span></p>
-                    </div>
+    <div id="htmlContent">
+      <h1>Hello World!</h1>
 
-                    <ul class="social-links list-inline m-t-30">
-                        <li>
-                            <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div> <!-- end card-box -->
-
-            <div class="card-box">
-                <h4 class="m-t-0 m-b-20 header-title">Skills</h4>
-                <div class="p-b-10">
-                    <p>HTML5</p>
-                    <div class="progress progress-sm">
-                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                        </div>
-                    </div>
-                    <p>PHP</p>
-                    <div class="progress progress-sm">
-                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                        </div>
-                    </div>
-                    <p>Wordpress</p>
-                    <div class="progress progress-sm m-b-0">
-                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end col -->
-
-
-        <div class="col-md-8 col-lg-9">
-            <div class="">
-                <div class="">
-                    <ul class="nav nav-tabs navtab-custom">
-                        <li class="">
-                            <a href="#home" data-toggle="tab" aria-expanded="false">
-                                <span class="visible-xs"><i class="fa fa-user"></i></span>
-                                <span class="hidden-xs">ABOUT ME</span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="#profile" data-toggle="tab" aria-expanded="true">
-                                <span class="visible-xs"><i class="fa fa-photo"></i></span>
-                                <span class="hidden-xs">GALLERY</span>
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#settings" data-toggle="tab" aria-expanded="false">
-                                <span class="visible-xs"><i class="fa fa-cog"></i></span>
-                                <span class="hidden-xs">SETTINGS</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane" id="home">
-                            <p class="m-b-5">Hi I'm Johnathn Deo,has been the industry's standard dummy text ever
-                                since the 1500s, when an unknown printer took a galley of type.
-                                Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                                In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-                                Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras
-                                dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
-                                tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
-                                ac, enim.</p>
-
-                            <div class="m-t-30">
-                                <h4>Experience</h4>
-
-                                <div class=" p-t-10">
-                                    <h5 class="text-primary m-b-5">Lead designer / Developer</h5>
-                                    <p class="">websitename.com</p>
-                                    <p><b>2010-2015</b></p>
-
-                                    <p class="text-muted font-13 m-b-0">Lorem Ipsum is simply dummy text
-                                        of the printing and typesetting industry. Lorem Ipsum has
-                                        been the industry's standard dummy text ever since the
-                                        1500s, when an unknown printer took a galley of type and
-                                        scrambled it to make a type specimen book.
-                                    </p>
-                                </div>
-
-                                <hr>
-
-                                <div class="">
-                                    <h5 class="text-primary m-b-5">Senior Graphic Designer</h5>
-                                    <p class="">coderthemes.com</p>
-                                    <p><b>2007-2009</b></p>
-
-                                    <p class="text-muted font-13">Lorem Ipsum is simply dummy text
-                                        of the printing and typesetting industry. Lorem Ipsum has
-                                        been the industry's standard dummy text ever since the
-                                        1500s, when an unknown printer took a galley of type and
-                                        scrambled it to make a type specimen book.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane active" id="profile">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="gal-detail thumb">
-                                        <a href="#" class="image-popup" title="Screenshot-2">
-                                            <img src="https://www.bootdey.com/image/400x300/008B8B/00000" class="thumb-img" alt="work-thumbnail">
-                                        </a>
-                                        <h4 class="text-center">Gallary Image</h4>
-                                        <div class="ga-border"></div>
-                                        <p class="text-muted text-center"><small>Photography</small></p>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <div class="gal-detail thumb">
-                                        <a href="#" class="image-popup" title="Screenshot-2">
-                                            <img src="https://www.bootdey.com/image/400x300/FF7F50/00000" class="thumb-img" alt="work-thumbnail">
-                                        </a>
-                                        <h4 class="text-center">Gallary Image</h4>
-                                        <div class="ga-border"></div>
-                                        <p class="text-muted text-center"><small>Photography</small></p>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <div class="gal-detail thumb">
-                                        <a href="#" class="image-popup" title="Screenshot-2">
-                                            <img src="https://www.bootdey.com/image/400x300/6495ED/00000" class="thumb-img" alt="work-thumbnail">
-                                        </a>
-                                        <h4 class="text-center">Gallary Image</h4>
-                                        <div class="ga-border"></div>
-                                        <p class="text-muted text-center"><small>Photography</small></p>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <div class="gal-detail thumb">
-                                        <a href="#" class="image-popup" title="Screenshot-2">
-                                            <img src="https://www.bootdey.com/image/400x300/4169E1/00000" class="thumb-img" alt="work-thumbnail">
-                                        </a>
-                                        <h4 class="text-center">Gallary Image</h4>
-                                        <div class="ga-border"></div>
-                                        <p class="text-muted text-center"><small>Photography</small></p>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <div class="gal-detail thumb">
-                                        <a href="#" class="image-popup" title="Screenshot-2">
-                                            <img src="https://www.bootdey.com/image/400x300/B0E0E6/00000" class="thumb-img" alt="work-thumbnail">
-                                        </a>
-                                        <h4 class="text-center">Gallary Image</h4>
-                                        <div class="ga-border"></div>
-                                        <p class="text-muted text-center"><small>Photography</small></p>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <div class="gal-detail thumb">
-                                        <a href="#" class="image-popup" title="Screenshot-2">
-                                            <img src="https://www.bootdey.com/image/400x300/4169E1/00000" class="thumb-img" alt="work-thumbnail">
-                                        </a>
-                                        <h4 class="text-center">Gallary Image</h4>
-                                        <div class="ga-border"></div>
-                                        <p class="text-muted text-center"><small>Photography</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="settings">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label for="FullName">Full Name</label>
-                                    <input type="text" value="John Doe" id="FullName" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Email">Email</label>
-                                    <input type="email" value="first.last@example.com" id="Email" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Username">Username</label>
-                                    <input type="text" value="john" id="Username" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Password">Password</label>
-                                    <input type="password" placeholder="6 - 15 Characters" id="Password" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="RePassword">Re-Password</label>
-                                    <input type="password" placeholder="6 - 15 Characters" id="RePassword" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="AboutMe">About Me</label>
-                                    <textarea style="height: 125px" id="AboutMe" class="form-control">Loren gypsum dolor sit mate, consecrate disciplining lit, tied diam nonunion nib modernism tincidunt it Loretta dolor manga Amalia erst volute. Ur wise denim ad minim venial, quid nostrum exercise ration perambulator suspicious cortisol nil it applique ex ea commodore consequent.</textarea>
-                                </div>
-                                <button class="btn btn-primary waves-effect waves-light w-md" type="submit">Save</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end col -->
     </div>
-    <!-- end row -->
-</div>
+    <a id="download" download="image.jpg" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAADICAYAAABS39xVAAAAAXNSR0IArs4c6QAACcBJREFUeF7t2+GR2zYQBlC7jVSQflKn+3EFbsOZi0cTDU0SwCfqVms9/z1AWL1dfqR056/fvv/4+cU/AgQINBD4KrAadEmJBAj8JyCwDAIBAm0EBFabVimUAAGBZQYIEGgjILDatEqhBAgILDNAgEAbAYHVplUKJUBAYJkBAgTaCAisNq1SKAECAssMECDQRkBgtWmVQgkQEFhmgACBNgICq02rFEqAgMAyAwQItBEQWG1apVACBASWGSBAoI2AwGrTKoUSICCwzAABAm0EBFabVimUAAGBZQYIEGgjILDatEqhBAgILDNAgEAbAYHVplUKJUBAYJkBAgTaCAisNq1SKAECAssMECDQRkBgtWmVQgkQEFhmgACBNgICq02rFEqAgMAyAwQItBEQWG1apVACBASWGSBAoI2AwGrTKoUSICCwzAABAm0EBFabVimUAAGBZQYIEGgjILDatEqhBAgILDNAgEAbAYHVplUKJUBAYJkBAgTaCAisNq1SKAECAssMECDQRkBgtWmVQgkQEFhmgACBNgICq02rFEqAgMAyAwQItBEQWG1apVACBASWGSBAoI2AwGrTKoUSICCwzAABAm0EBFabVimUAAGBZQYIEGgjILDatEqhBAgILDNAgEAbAYHVplUKJUBAYJkBAgTaCAisNq1SKAECAssMECDQRkBgtWmVQgkQEFhmgACBNgICq02rFEqAgMAyAwQItBEQWG1apVACBASWGSBAoI2AwGrTKoUSICCwzAABAm0EBFabVimUAAGBZQYIEGgjILDatEqhBAgILDNAgEAbAYHVplUKJUBAYJkBAgTaCAisNq1SKAECAssMECDQRkBgtWmVQgkQEFhmgACBNgICq02rFEqAgMAyAwQItBEQWG1apVACBASWGSBAoI2AwGrTKoUSICCwzAABAm0EBFabVimUAAGBZQYIEGgjILDatEqhBAgILDNAgEAbAYHVplUKJUBAYJkBAgTaCLxtYP3z91/TTfr2/ceX1fXTL76z8Oisjzpu/2bWPFLD2d4Zi5lat2fc7zl7n3vrnvVer/ROena/p+J9P9t19fXfNrBGg/jx89kL6PZaVw7U3nBvX39mzepAzK4/C60jh+SC/ajnVS7aK7xX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">Download</a>
+
+    <script type="text/javascript">
+      function autoClick(){
+        $("#download").click();
+      }
+
+      $(document).ready(function(){
+        var element = $("#htmlContent");
+
+        $("#download").on('click', function(){
+
+          html2canvas(element, {
+            onrendered: function(canvas) {
+              var imageData = canvas.toDataURL("image/jpg");
+              var newData = imageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
+              $("#download").attr("download", "image.jpg").attr("href", newData);
+            }
+          });
+
+        });
+      });
+    </script>
+  
+
+</body>
+
+ <div class="certif" *ngIf="ajcertif">
+          <div class="border-pattern">
+              <div class="content">
+                  <div class="inner-content">
+                    <div class="containers">
+                    
+                    <div class="center">
+                          <h1>   certificat </h1>    <br>  <h2>d'excellence  </h2>
+                    </div>
+                            <div class="right">
+                               <img src ="assets/img/africo-ding.png" class="right-image" width="30"/> 
+                            </div>
+                          </div>
+                
+        
+                      <h3>Ce certificat est fièrement présenté à</h3>
+                      <input type="text">
+                      <h3>Has Completed</h3>
+                      <p>A completé</p>
+                      <h3>Le <p>Feburary 5, 2021</p></h3>
+
+                      <div class="badge">
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>-->
+        <div #captureElement>
+            <!-- Your HTML content here -->
+            <body class="certif" >
+              
+                    <div class="content" class="image-container set-full-width"  style="background-image: url('assets/assetss/img/certif.jpg')">
+                        <img src ="assets/img/africo-ding.png" width="100" style="margin-right: 40px;margin-top: 20px;"/> 
+                        <div style="text-align: center;">
+                        <h1 style="text-align: center;">   Certificat   </h1> 
+                        <br> <h2 style="text-align: center;"> D’accomplissement</h2> 
+                            <h3> Félicitations </h3>
+                    </div><br>
+                        <img src="assets/assetss/img/bonde.png" alt="Votre image" id="img2" >
+                        <img src="assets/assetss/img/bonde2.jpg" width="70%" height="10%" id="img3" >
+                        <div class="text"><br> <em> {{certif.nomuser}}</em>  </div>
+                          
+                        <div class="text"> <br><br><br><br>  qui a réussi le Test  <h2> <em>{{certif.certif_title}}</em></h2>  </div>
+                        
+                        <h4> En poursuivant votre apprentissage, vous avez élargi vos perspectives,
+                          affiné vos compétences et vous êtes en meilleure position sur le marché du travail</h4> 
+                          <div class="containers">    
+   
+                                
+                                              
+                            <h3>Ahmed Ben Hamed <br> CEO</h3>                          
+                            <h3>signature  <p><img src="assets/assetss/img/signature.jpg" width="150"></p></h3>                           
+                             
+                            </div>
+                           
+                      
+                    </div>
+              
+        
+                  </body>
+        </div>
+
+        
+        
+          
+          <button (click)="capture()">Capture and Download</button>

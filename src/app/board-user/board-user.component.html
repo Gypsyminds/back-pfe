@@ -16,17 +16,17 @@
         </div>
         <div class="navbar__right">
           <a href="#">
-            <i class="fa fa-search" aria-hidden="true" style="border-color: #020509;">
+            <i class="fa fa-search" aria-hidden="true">
              
             </i>
             
           </a>
           <a href="#">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <i class="fa fa-clock-o" aria-hidden="true" style="width: 30;"></i>
           </a>
           
           <a href="#">
-            <img width="30" src="assets/avatar.svg" alt="" />
+            <img width="60" height="50" [src]="imageData"  alt="" />
             <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
           </a>
         </div>
@@ -88,7 +88,7 @@
                 <span class="font-bold text-title">{{nbrcertif}}</span>
               </div>
             </div>
-          </div><br><br><br>
+          </div><br>
           <!-- MAIN CARDS ENDS HERE -->
 
           <!-- CHARTS STARTS HERE -->
@@ -175,14 +175,10 @@
                 /><br>
                       <div>
                         <input type="file" (change)="onFileChanged($event)">
-                    
-                       
+                      
                     </div>
                     <br>
-                    <input type="button"  (click)="onUpload()" value="upload">
-                    
-                   
-                    
+                    <input type="button"  (click)="uploadFile()" value="upload">  
                     <br>
                    
                         <button class="btn btn-success py-3 px-5 m-4 mx-auto" style="background-color: rgb(0, 110, 255);"   (click)="ajoutercour(cour)"> <h5  class="titre-blanc">Ajouter </h5></button>
@@ -233,6 +229,37 @@
           </tr>
         </table>
         </div>    
+        <div class="certif" *ngIf="ajcertif">
+          <form >
+  
+            <div class="form-group" class="col-sm-4 col-sm-offset-1" >    
+               <input
+                      type="text"
+                      class="form-control"
+                      name="title"
+                      [(ngModel)]="certification.certif_title"          
+                      #courtitel="ngModel"
+                      style="border-color:rgb(60, 32, 218);width: 260px;"
+                      placeholder="titre de cour  "
+                    /><br>
+                  <input
+                      type="text"
+                      class="form-control"
+                      name="nomuser"
+                      [(ngModel)]="certification.nomuser"  
+                      #nomuser="ngModel"
+                      style="border-color:rgb(60, 32, 218);width: 260px;"
+                      placeholder="Nom de Condidat"
+                    /><br>
+              
+            <br>
+            <br>
+           
+                <button class="btn btn-success py-3 px-5 m-4 mx-auto" style="background-color: rgb(0, 110, 255);"   (click)="ajoutercertif(certification)"> <h5  class="titre-blanc">Ajouter </h5></button>
+            </div>
+ </form>
+        </div>
+
         <div *ngIf="interprof">
                                      
 
@@ -256,21 +283,22 @@
           </tr>
         </table>
       </div>
+      <div *nIf="download">
+
+      </div>
+        
+            </div>
             
             </div>
-              <div id="apex1">
-                <p></p>
-              </div>
-            </div>
 
-            <div class="charts__right">
+           <!-- <div class="charts__right">
               <div class="charts__right__title">
                 <div>
                   <h1>Stats Reports</h1>
                   <p></p>
                 </div>
               </div>
-
+              
               <div class="charts__right__cards">
                 <div class="card1">
                   <h1></h1>
@@ -293,15 +321,15 @@
               </div>
             </div>
           </div>
-          <!-- CHARTS ENDS HERE -->
-        </div>
+         CHARTS ENDS HERE -->
+          </div></div>
       </main>
-      <div id="sidebar">
-        
+
+
         <div id="sidebar">
-            <div class="sidebar__title">
-              <div class="sidebar__img" class="col-12 text-center">
-                <img width="50" src="assets/avatar.svg" alt="" />
+            <div>
+              <div class="text-center">
+                <img  [src]="imageData" width="200" height="120" />
 
               </div>
             <!--  <i
@@ -331,8 +359,17 @@
               </div>
              <div class="sidebar__link">
                 <i class="fa fa-certificate"></i>
-                <button style="background-color: #020509;"><h5  class="titre-blanc">Ajouter Certification</h5></button>
-              </div><!-- 
+                <button  (click)="affcertifs()" style="background-color: #020509;"><h5  class="titre-blanc">Ajouter Certification</h5></button>
+              </div>
+              <div class="sidebar__link">
+                <i class="fa fa-user"></i>
+                <button (click)="getpagecertif()" style="background-color: #020509;"><h5  class="titre-blanc">Afficher Certification </h5></button>
+              </div>
+              
+              
+              
+              
+              <!-- 
               <div class="sidebar__link">
                 <i class="fa fa-files-o"></i>
                 <a href="#">Apply for leave</a>
@@ -347,9 +384,9 @@
               </div>-->
               <div class="sidebar__logout">
                 <i class="fa fa-power-off"></i>
-                <a href="#">Log out</a>
+                <button   style="background-color: #020509;" (click)="logout()"><h5  class="titre-blanc">Log out</h5></button>
+            
               </div>
-        </div>
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>

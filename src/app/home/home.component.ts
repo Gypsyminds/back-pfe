@@ -27,5 +27,8 @@ getAllcours(){
  
  }
   listcour:any;
+  affichercour(){
+    this.router.navigate(['/courses']);
+  }
 }
 

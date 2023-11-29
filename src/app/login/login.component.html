@@ -7,16 +7,14 @@
        
 <div class="container">
           <div class="row">
-            <div class="col-sm-7 col-sm-offset-2">
-                   <!--      Wizard container        -->
+            <div class="col-sm-6 col-sm-offset-1">
              <div class="wizard-container">
                 <div class="card wizard-card" data-color="orange" id="wizardProfile">
-                  <form action="" method="">
+                 
                   <div class="wizard-header text-center">
                     <h3 class="wizard-title">Bienvenue </h3>
-        <B><p class="category"></p></B>
+      
                   </div>
-<div class="tab-content" class="tab-pane">        
    
     <form
       *ngIf="!isLoggedIn"
@@ -25,7 +23,7 @@
       #f="ngForm"
       novalidate
     >
-      <div class="form-group" class="col-sm-6 col-sm-offset-1;wizard-header">
+      <div class="form-group" class="col-sm-6 col-sm-offset-1">
         <label for="username">Username</label>
         <input
           type="text"
@@ -68,10 +66,10 @@
             Password must be at least 6 characters
           </div>
         </div>
-        <br> <br>
+        <br>
       </div>
       
-      <div class="form-group" class="col-sm-4 col-sm-offset-3">
+      <div class="form-group" class="col-sm-6 col-sm-offset-1">
         <button class="btn btn-primary btn-block" style="border-color:goldenrod;background-color: chocolate;">
           Login
         </button>
@@ -88,12 +86,10 @@
     </form>
 </div>
     <div class="alert alert-success" *ngIf="isLoggedIn">
-      Logged in as {{ roles }}.
-     
+    <!--Logged in as {{ roles }}.-->
+     <h5> Bienvenue ...</h5>
     </div>
-    <a href="http://localhost:4200/register">  <h5 class="text-primary font-bold text-center" style="color: chocolate"> Si tu n'as un compte SignUp </h5></a>
-                  </form>
-                  
+                 
                   
                 </div>
              </div>

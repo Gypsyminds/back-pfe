@@ -9,11 +9,11 @@
   .green-text {
     color: green;
   }
-  .input-with-icon {
+  .input {
     position: relative;
 }
 
-.input-with-icon i {
+.input {
     position: absolute;
     left: 10px; /* Ajustez la valeur selon vos besoins */
     top: 50%;

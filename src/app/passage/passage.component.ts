@@ -63,8 +63,9 @@ export class PassageComponent implements OnInit {
   //  document.addEventListener("keydown", this.fermerSiEchap);
   this.width=["25%","50%","75%","100%"];
   //this.initializeAudio();
-  //this.detect30s();
- 
+ // this.detect30s();
+
+
 
   }
   openFullscreen() {
@@ -103,7 +104,7 @@ export class PassageComponent implements OnInit {
   getAllQcms(id:any) {
     this.articleService.getAllQcms(this.articleService.sharedValue).subscribe(listQcms => {
       
-   
+      this. detect30secondes();
     setInterval(() => {
     
         this.counter--;
@@ -185,8 +186,8 @@ export class PassageComponent implements OnInit {
    //  this.trainning();
    // this.getAllcours();
    // this.getstart();
-  
     // this.onEscapeKey();
+   // this.fermercam();
     }
  showButton = true;
  showText: boolean = true;
@@ -419,5 +420,14 @@ generatePDF() {
 
     });
   }
-  
+  detect30secondes(){
+    this.http.get('http://127.0.0.1:5200/mafonctions').subscribe(()=>{
+
+    });
+  }
+  fermercam(){
+    this.http.get('http://127.0.0.1:5200/api/close-camera').subscribe(()=>{
+
+    })
+  }
 }

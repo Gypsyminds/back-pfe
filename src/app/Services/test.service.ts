@@ -41,9 +41,15 @@ urlcam='http://127.0.0.1:5200/api/close-camera';
 urlinscrit='http://localhost:8086/qcm/inscrit';
 urlmail='http://localhost:8086/qcm/sendPdfByEmail';
 urlcouradmin='http://localhost:8086/cour/getByIds';
+urlimguser='http://localhost:8086/api/pdf/uploaduser';
+urlcertif='http://localhost:8086/feed/ass-score';
+urlcertifhet='http://localhost:8086/feed/certifhtml';
+
   constructor(private http :HttpClient ) { }
   options = { withCredentials: true };
-
+  getImage(id: number) {
+    return this.http.get('http://localhost:8086/cour/get/' + id, { responseType: 'blob' });
+  }
 addinscrit(courins: any,id_cour:any,id_user:any){
   const httpOptions = {
     headers: new HttpHeaders({
@@ -108,6 +114,14 @@ getfiles(){
   }
   return this.http.get<CourseModule[]>(`${this.url12}/${id}`,httpOptions);
  }
+ getCertif(){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+    })
+  }
+  return this.http.get<Certification>(`${this.urlcertifhet}`,httpOptions);
+ }
  getnubrcour():Observable<Number>{
   const httpOptions = {
     headers: new HttpHeaders({
@@ -163,6 +177,14 @@ getscore(){
     })
   }
    return this.http.post(`${this.Url2}/${id_qs_qcm}/1`,reponces,httpOptions);
+ }
+ addCertif(certif:any){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+    })
+  }
+  return this.http.post(`${this.urlcertif}`,certif,httpOptions)
  }
  addcour(c:any){
   const httpOptions = {

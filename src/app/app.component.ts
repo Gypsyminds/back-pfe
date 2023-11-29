@@ -13,7 +13,8 @@ export class AppComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
-
+  email :any;
+  nom: boolean = false;
   constructor(private tokenStorageService: TokenStorageService, private router:Router) { }
 
   ngOnInit(): void {
@@ -27,6 +28,13 @@ export class AppComponent implements OnInit {
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.username = user.username;
+       this.email = user.email ;
+       
+      if(this.email ==="khouloud.laajili@esprit.tn"){
+       this.router.navigateByUrl('/home');
+       this.nom = true
+      }
+      
     }
   }
 
@@ -37,4 +45,7 @@ export class AppComponent implements OnInit {
   navigatesignup(){
     this.router.navigate(['/register']);
   }
+  basculerversadmin(){
+    
+      }
 }
