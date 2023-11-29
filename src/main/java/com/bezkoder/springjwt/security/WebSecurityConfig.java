@@ -92,6 +92,7 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
                         .requestMatchers("/cour/**").permitAll()
                         .requestMatchers("/api/pdf/**").permitAll()
                         .requestMatchers("/qcm/**").permitAll()
+                        .requestMatchers("/feed/**").permitAll()
 
                 .anyRequest().authenticated()
         );
